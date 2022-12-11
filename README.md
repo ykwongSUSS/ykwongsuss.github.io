@@ -1,3 +1,3 @@
-# ykwongsuss.github.io - jblog
+# ykwongsuss.github.io
 
 A Julia Blog - to capture tips in learning Julia.
