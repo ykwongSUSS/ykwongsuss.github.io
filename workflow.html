@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./datatypes.html" rel="next">
-<link href="./YAML.html" rel="prev">
+<link href="./yaml.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./YAML.html" class="sidebar-item-text sidebar-link">
+  <a href="./yaml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">YAML</span></a>
   </div>
 </li>
@@ -294,7 +294,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#editing-qmd-and-save-as-html" id="toc-editing-qmd-and-save-as-html" class="nav-link active" data-scroll-target="#editing-qmd-and-save-as-html"><span class="header-section-number">1</span> Editing <code>qmd</code> and save as <code>html</code></a></li>
+  <li><a href="#github-desktop" id="toc-github-desktop" class="nav-link" data-scroll-target="#github-desktop"><span class="header-section-number">2</span> Github Desktop</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -318,17 +325,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="editing-qmd-and-save-as-html" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="editing-qmd-and-save-as-html"><span class="header-section-number">1</span> Editing <code>qmd</code> and save as <code>html</code></h2>
 <ol type="1">
-<li>edited on Rstudio under QuartoWeb/WebR</li>
-<li>Project under Rstudio is WebR.Rproj</li>
-<li>html files under WebR/_site</li>
-<li>these files are copied to github repository</li>
-<li>url is github.io/ykwong/webR</li>
-<li>synchronize with rsync</li>
-<li></li>
+<li>edit QuartoWeb/WebR on RStudio <code>qmd</code></li>
+<li>open with Project file: WebR.Rproj</li>
+<li>updated html files is found in folder: WebR/_site</li>
+</ol>
+</section>
+<section id="github-desktop" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="github-desktop"><span class="header-section-number">2</span> Github Desktop</h2>
+<ol start="4" type="1">
+<li><p>local github desktop repository linked to internet github repo via <code>ykwongsuss.github.io</code></p></li>
+<li><p>once editing on RStudio is done, the html goes to folder: <code>webR/_site</code>.</p></li>
+<li><p>The _site is <code>rsync</code> to <code>ykwong/Documents/Github/ykwongsuss.github.io</code></p></li>
+<li><p>in terminal: <code>rsync -ahP ~/quartoWeb/WebR/_site/ ~/Documents/Github/ykwongsuss.github.io 2&gt; ~/quartoWeb/WebR/rSyncErrors.txt</code></p></li>
+<li><p>changes to local repo will be reflected in github desktop</p></li>
+<li><p>write a <code>compulsory</code> summary entry (usually date) and commit to <code>main</code> on github.</p></li>
+<li><p>check webR on github URL: <code>ykwongsuss.github.io</code></p></li>
 </ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -742,7 +760,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./YAML.html" class="pagination-link" aria-label="YAML">
+      <a href="./yaml.html" class="pagination-link" aria-label="YAML">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">YAML</span>
       </a>          
   </div>
