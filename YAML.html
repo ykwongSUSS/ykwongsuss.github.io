@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./YAML.html" rel="next">
+<link href="./workflow.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./YAML.html">YAML</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -108,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./index.html" class="sidebar-item-text sidebar-link active">
+            <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -117,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./YAML.html" class="sidebar-item-text sidebar-link">
+  <a href="./YAML.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">YAML</span></a>
   </div>
 </li>
@@ -298,7 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./YAML.html">YAML</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Introduction</h1>
 </div>
@@ -317,18 +318,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This <code>WebR</code> website is created using Quarto. It is a collection of R snippets useful for my study of R.</p>
-<p>The website, started in June 2024, is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference. R commands are usually indicated in the initial callouts.</p>
-<p>The main chapters for this website are:</p>
 <ol type="1">
-<li>Datatypes</li>
-<li>DataFrames</li>
-<li>ggPlots</li>
-<li>Datasets</li>
-<li>References</li>
+<li>For each chapter and section, the YAML config is as follows:</li>
 </ol>
-<p>More may be added later.</p>
-<p>This introduction chapter has two other sections. The first section is a housekeeping section that document the YAML and Quarto configs used in this website. The third section describes the workflows for editing the website.</p>
+<pre><code>---
+title: "Introduction"
+format: html
+editor: visual
+warning: FALSE
+number-sections: true
+---</code></pre>
+<hr>
+<ol start="2" type="1">
+<li>the _quarto.yml file list the side bar menu items</li>
+</ol>
+<pre><code>---
+project:
+  type: website
+
+website:
+  title: "WebR"
+  page-navigation: true
+  sidebar:
+    search: true
+    contents:
+      - text: Introduction 
+        href: index.qmd
+        contents: 
+           - text: YAML
+             href: yaml.qmd
+           - text: Workflow
+             href: workflow.qmd
+      - section: "Datatypes"
+        href: datatypes.qmd
+        contents:
+          - text: numbers
+            href: datatypes/numbers.qmd
+          - text: strings
+            href: datatypes/strings.qmd
+...
+---</code></pre>
 
 
 
@@ -744,10 +773,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./YAML.html" class="pagination-link" aria-label="YAML">
-        <span class="nav-page-text">YAML</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workflow.html" class="pagination-link" aria-label="Workflow">
+        <span class="nav-page-text">Workflow</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

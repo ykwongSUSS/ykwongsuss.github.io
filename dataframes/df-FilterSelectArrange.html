@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WebR - Introduction</title>
+<title>WebR - df-FilterSelectArrange</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./YAML.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -81,7 +114,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -96,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">WebR</a> 
+      <a href="../">WebR</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -106,32 +141,15 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./index.html" class="sidebar-item-text sidebar-link active">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./YAML.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">YAML</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workflow</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./datatypes.html" class="sidebar-item-text sidebar-link">
+            <a href="../datatypes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datatypes</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -140,43 +158,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">numbers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">strings</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/factors.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/factors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">factors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/dates.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/dates.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dates</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/lists.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/tables.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatypes/tables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">tables</span></a>
   </div>
 </li>
@@ -184,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./dataframes.html" class="sidebar-item-text sidebar-link">
+            <a href="../dataframes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataFrames</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -192,46 +210,22 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dataframes/textEntry.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">textEntry</span></a>
-  </div>
-</li>
+ <span class="menu-text">textEntry.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dataframes/importExport.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">importExport.</span></a>
-  </div>
-</li>
+ <span class="menu-text">importExport.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dataframes/filterSelectArrange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">filterSelectArrange</span></a>
-  </div>
-</li>
+ <span class="menu-text">filterSelectArrange.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dataframes/mutate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">mutate</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dataframes/caseMatch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">caseMatch</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dataframes/pivot_longer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">pivot_longer</span></a>
-  </div>
-</li>
+ <span class="menu-text">caseMatch.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ggplots.html" class="sidebar-item-text sidebar-link">
+            <a href="../ggplots.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ggPlots</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -239,51 +233,56 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ggplots/basic5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">basic5</span></a>
-  </div>
-</li>
+ <span class="menu-text">basics.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ggplots/regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">regression</span></a>
-  </div>
-</li>
+ <span class="menu-text">regression.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ggplots/facets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">facets</span></a>
-  </div>
-</li>
+ <span class="menu-text">functions.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DataSets</span></a>
+            <a href="../rdatasets.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">rDataSets</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./datasets/iris/iris.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">iris</span></a>
-  </div>
-</li>
+ <span class="menu-text">Iris.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./datasets/penguins/penguins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">penguins</span></a>
-  </div>
-</li>
+ <span class="menu-text">Penguins.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../statistics.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">inferences.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">regression.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">machinelearning.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -293,14 +292,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">1. Dataset</a></li>
+  <li><a href="#choose-rows" id="toc-choose-rows" class="nav-link" data-scroll-target="#choose-rows">2. Choose Rows</a>
+  <ul class="collapse">
+  <li><a href="#choose-rows-by-row-number---slice" id="toc-choose-rows-by-row-number---slice" class="nav-link" data-scroll-target="#choose-rows-by-row-number---slice">Choose Rows by row number - <code>slice</code></a></li>
+  </ul></li>
+  <li><a href="#choose-rows-by-criteria---filter" id="toc-choose-rows-by-criteria---filter" class="nav-link" data-scroll-target="#choose-rows-by-criteria---filter">Choose Rows by Criteria - <code>filter()</code></a>
+  <ul class="collapse">
+  <li><a href="#choose-columns---select" id="toc-choose-columns---select" class="nav-link" data-scroll-target="#choose-columns---select">3. Choose Columns - <code>select()</code></a></li>
+  </ul></li>
+  <li><a href="#sort-by-column-by-name---arrange" id="toc-sort-by-column-by-name---arrange" class="nav-link" data-scroll-target="#sort-by-column-by-name---arrange">4. Sort by Column by name - <code>arrange()</code></a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="df-FilterSelectArrange.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">df-FilterSelectArrange</h1>
 </div>
 
 
@@ -317,20 +331,159 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This <code>WebR</code> website is created using Quarto. It is a collection of R snippets useful for my study of R.</p>
-<p>The website, started in June 2024, is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference. R commands are usually indicated in the initial callouts.</p>
-<p>The main chapters for this website are:</p>
-<ol type="1">
-<li>Datatypes</li>
-<li>DataFrames</li>
-<li>ggPlots</li>
-<li>Datasets</li>
-<li>References</li>
-</ol>
-<p>More may be added later.</p>
-<p>This introduction chapter has two other sections. The first section is a housekeeping section that document the YAML and Quarto configs used in this website. The third section describes the workflows for editing the website.</p>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">1. Dataset</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"SD"</span>,<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Test1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">67</span>,<span class="dv">23</span>,<span class="dv">60</span>,<span class="dv">78</span>,<span class="dv">55</span>,<span class="dv">67</span>,<span class="dv">75</span>,<span class="dv">36</span>,<span class="dv">45</span>,<span class="dv">56</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Practical <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">45</span>,<span class="dv">23</span>,<span class="dv">56</span>,<span class="dv">90</span>,<span class="dv">87</span>,<span class="dv">55</span>,<span class="dv">88</span>,<span class="dv">55</span>,<span class="dv">76</span>,<span class="dv">60</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>FinalExam <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">56</span>,<span class="dv">32</span>,<span class="dv">74</span>,<span class="dv">87</span>,<span class="dv">65</span>,<span class="dv">66</span>,<span class="dv">84</span>,<span class="dv">43</span>,<span class="dv">65</span>,<span class="dv">64</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ID, Test1, Practical, FinalExam)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ID Test1 Practical FinalExam
+1  SD101    67        45        56
+2  SD102    23        23        32
+3  SD103    60        56        74
+4  SD104    78        90        87
+5  SD105    55        87        65
+6  SD106    67        55        66
+7  SD107    75        88        84
+8  SD108    36        55        43
+9  SD109    45        76        65
+10 SD110    56        60        64</code></pre>
+</div>
+</div>
+</section>
+<section id="choose-rows" class="level2">
+<h2 class="anchored" data-anchor-id="choose-rows">2. Choose Rows</h2>
+<section id="choose-rows-by-row-number---slice" class="level3">
+<h3 class="anchored" data-anchor-id="choose-rows-by-row-number---slice">Choose Rows by row number - <code>slice</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ID Test1 Practical FinalExam
+1 SD101    67        45        56
+2 SD102    23        23        32
+3 SD103    60        56        74</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ID Test1 Practical FinalExam
+8  SD108    36        55        43
+9  SD109    45        76        65
+10 SD110    56        60        64</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(df, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ID Test1 Practical FinalExam
+1 SD103    60        56        74
+2 SD104    78        90        87
+3 SD105    55        87        65
+4 SD106    67        55        66</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="choose-rows-by-criteria---filter" class="level2">
+<h2 class="anchored" data-anchor-id="choose-rows-by-criteria---filter">Choose Rows by Criteria - <code>filter()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, FinalExam<span class="sc">&lt;</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ID Test1 Practical FinalExam
+1 SD102    23        23        32
+2 SD108    36        55        43</code></pre>
+</div>
+</div>
+<section id="choose-columns---select" class="level3">
+<h3 class="anchored" data-anchor-id="choose-columns---select">3. Choose Columns - <code>select()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ID"        "Test1"     "Practical" "FinalExam"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ID Test1 Practical FinalExam
+1 SD101    67        45        56
+2 SD102    23        23        32
+3 SD103    60        56        74
+4 SD104    78        90        87
+5 SD105    55        87        65
+6 SD106    67        55        66</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[,<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Practical FinalExam
+1         45        56
+2         23        32
+3         56        74
+4         90        87
+5         87        65
+6         55        66
+7         88        84
+8         55        43
+9         76        65
+10        60        64</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(df, <span class="fu">c</span>(<span class="st">"ID"</span>,<span class="st">"FinalExam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ID FinalExam
+1  SD101        56
+2  SD102        32
+3  SD103        74
+4  SD104        87
+5  SD105        65
+6  SD106        66
+7  SD107        84
+8  SD108        43
+9  SD109        65
+10 SD110        64</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="sort-by-column-by-name---arrange" class="level2">
+<h2 class="anchored" data-anchor-id="sort-by-column-by-name---arrange">4. Sort by Column by name - <code>arrange()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(df,<span class="fu">desc</span>(FinalExam))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ID Test1 Practical FinalExam
+1  SD104    78        90        87
+2  SD107    75        88        84
+3  SD103    60        56        74
+4  SD106    67        55        66
+5  SD105    55        87        65
+6  SD109    45        76        65
+7  SD110    56        60        64
+8  SD101    67        45        56
+9  SD108    36        55        43
+10 SD102    23        23        32</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default for arrange is ascending</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(df,<span class="fu">c</span>(ID, FinalExam)) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(FinalExam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ID FinalExam
+1  SD102        32
+2  SD108        43
+3  SD101        56
+4  SD110        64
+5  SD105        65
+6  SD109        65
+7  SD106        66
+8  SD103        74
+9  SD107        84
+10 SD104        87</code></pre>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -742,15 +895,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./YAML.html" class="pagination-link" aria-label="YAML">
-        <span class="nav-page-text">YAML</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

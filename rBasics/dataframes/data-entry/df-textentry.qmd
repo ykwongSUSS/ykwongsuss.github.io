@@ -1,0 +1,85 @@
+---
+title: "df-textEntry"
+warning: false
+---
+
+### 1. Using `data.frame()` from `BaseR`
+
+```{r}
+# strings indicated in quotes
+
+sch = c("SBIZ","NSHD","SHBS","SST")
+pgms = c(23,25,14,13)
+df <- data.frame(sch,pgms)
+df
+str(df)
+```
+
+### 2. Using a `read.table` from `BaseR`
+
+```{r}
+# note that parameters include `header=` and `text=`
+# and so don't need quotes. 
+
+df<-read.table(header = TRUE, text = "
+sch pgms
+SBIZ 23
+NSHD 25
+SHBS 14
+SST 13
+")
+df
+str(df)
+```
+
+### 3. Using `tibble()` from `tidyverse`
+
+```{r}
+library(tidyverse)
+# quotes required
+
+tb1 <- tibble(
+sch = c("SBIZ","NSHD","SHBS","SST"),
+pgms = c(23,25,14,13)  
+)
+tb1
+```
+
+### 4a. using `trible()` - a transposed tibble
+
+```{r}
+tb2<-tribble(
+  ~sch, ~pgms,
+  "SBIZ", 23,
+  "NSHD", 25,
+  "SHBS", 14,
+  "SST", 13
+)
+tb2
+```
+
+### 4b. `trible()` with date
+
+```{r}
+tb3 <- tribble (
+  ~date, ~weight,
+  "2020-02-22", 13,
+  "2021-03-02", 15,
+  "2022-04-11", 18,
+  "2023-03-10", 23
+)
+tb3$date <- as.Date(tb3$date)
+tb3
+```
+
+### 5. Using `read_csv` from `tidyverse::readr`
+
+```{r}
+rc <- read_csv("sch, pgms
+         SBIZ, 23
+         NSHD, 25
+         SHBS, 14
+         SST,  13
+         ")
+rc
+```
