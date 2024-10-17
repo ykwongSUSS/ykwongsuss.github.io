@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../datasets.html" rel="next">
-<link href="../examples/kikoWeight.html" rel="prev">
+<link href="../examples/kikoWeights.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -298,8 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/kikoWeight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">kikoWeight</span></a>
+  <a href="../examples/kikoWeights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">kikoWeights</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -356,6 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#gradetable" id="toc-gradetable" class="nav-link" data-scroll-target="#gradetable"><span class="header-section-number">1.3</span> GradeTable</a></li>
   <li><a href="#cut-intervals" id="toc-cut-intervals" class="nav-link" data-scroll-target="#cut-intervals"><span class="header-section-number">1.4</span> Cut Intervals</a></li>
   <li><a href="#assign-lettergrades" id="toc-assign-lettergrades" class="nav-link" data-scroll-target="#assign-lettergrades"><span class="header-section-number">1.5</span> Assign LetterGrades</a></li>
+  <li><a href="#count-in-each-letter-grade" id="toc-count-in-each-letter-grade" class="nav-link" data-scroll-target="#count-in-each-letter-grade"><span class="header-section-number">1.6</span> Count in each letter grade</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -457,6 +458,18 @@ Levels: F D D+ C C+ B- B B+ A- A A+</code></pre>
 8  SD108     78.8    A-
 9  SD109     47.2    D+
 10 SD110     55.0    C+</code></pre>
+</div>
+</div>
+</section>
+<section id="count-in-each-letter-grade" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="count-in-each-letter-grade"><span class="header-section-number">1.6</span> Count in each letter grade</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(df3<span class="sc">$</span>Grade)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tab1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ F  D D+  C C+ B-  B B+ A-  A A+ 
+ 0  1  2  0  2  1  1  1  2  0  0 </code></pre>
 </div>
 </div>
 
@@ -876,8 +889,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../examples/kikoWeight.html" class="pagination-link" aria-label="kikoWeight">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">kikoWeight</span>
+      <a href="../examples/kikoWeights.html" class="pagination-link" aria-label="kikoWeights">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">kikoWeights</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
