@@ -14,7 +14,7 @@
     "href": "yaml.html",
     "title": "yaml",
     "section": "",
-    "text": "---\ntitle: \"Introduction\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
+    "text": "---\ntitle: \"yaml\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
     "crumbs": [
       "Preface",
       "yaml"
@@ -836,7 +836,7 @@
     "href": "yaml.html#chapter-yaml-for-each-qmd-file.",
     "title": "yaml",
     "section": "",
-    "text": "---\ntitle: \"Introduction\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
+    "text": "---\ntitle: \"yaml\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
     "crumbs": [
       "Preface",
       "yaml"
@@ -1027,6 +1027,17 @@
     "crumbs": [
       "Datatypes",
       "lists"
+    ]
+  },
+  {
+    "objectID": "yaml.html#chapter-yamlfor-each-qmd-file.",
+    "href": "yaml.html#chapter-yamlfor-each-qmd-file.",
+    "title": "yaml",
+    "section": "",
+    "text": "---\ntitle: \"yaml\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
+    "crumbs": [
+      "Preface",
+      "yaml"
     ]
   }
 ]
