@@ -12,12 +12,12 @@
   {
     "objectID": "yaml.html",
     "href": "yaml.html",
-    "title": "YAML",
+    "title": "yaml",
     "section": "",
     "text": "---\ntitle: \"Introduction\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
     "crumbs": [
       "Preface",
-      "YAML"
+      "yaml"
     ]
   },
   {
@@ -834,12 +834,12 @@
   {
     "objectID": "yaml.html#chapter-yaml-for-each-qmd-file.",
     "href": "yaml.html#chapter-yaml-for-each-qmd-file.",
-    "title": "YAML",
+    "title": "yaml",
     "section": "",
     "text": "---\ntitle: \"Introduction\"\nformat: html\neditor: visual\nwarning: FALSE\nnumber-sections: true\n---",
     "crumbs": [
       "Preface",
-      "YAML"
+      "yaml"
     ]
   },
   {
@@ -856,12 +856,12 @@
   {
     "objectID": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "href": "yaml.html#navigation-sidebar-in-_quarto.yml",
-    "title": "YAML",
+    "title": "yaml",
     "section": "2 Navigation sidebar in _quarto.yml",
     "text": "2 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
     "crumbs": [
       "Preface",
-      "YAML"
+      "yaml"
     ]
   },
   {
