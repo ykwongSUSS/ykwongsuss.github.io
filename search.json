@@ -101,7 +101,7 @@
     "href": "index.html",
     "title": "Preface",
     "section": "",
-    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nggPlots\nDatasets\nReferences\n\nOthers may be added later.\nMost times, we will to to default to tidyverse commands and will only use BaseR for the most basic commands.",
+    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nggPlots\nDatasets\nExamples\nReferences\n\nOthers may be added later. The R used in this website tends to lean towards a tidyverse orientation.",
     "crumbs": [
       "Preface"
     ]
@@ -1038,6 +1038,115 @@
     "crumbs": [
       "Preface",
       "yaml"
+    ]
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html",
+    "href": "datasets/baseRData/baseRData.html",
+    "title": "baseRData",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(gt)\n\nbaseR does come with a set of data preloaded in library(datasets). The list of datasets can be found using data() command.\nThe common baseR datasets used are:\n\n\n\nairquality\ncars\nfaithful\n\n\niris\nmtcars\nTitanic\n\n\nwomen\n\n\n\n\n\n\ndata()"
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#libraries",
+    "href": "datasets/baseRData/baseRData.html#libraries",
+    "title": "baseRData",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(gt)\n\nbaseR does come with a set of data preloaded in library(datasets). The list of datasets can be found using data() command.\nThe common baseR datasets used are:\n\n\n\nairquality\ncars\nfaithful\n\n\niris\nmtcars\nTitanic\n\n\nwomen\n\n\n\n\n\n\ndata()"
+  },
+  {
+    "objectID": "examples.html",
+    "href": "examples.html",
+    "title": "examples",
+    "section": "",
+    "text": "0.1 DataTypes\n\nkikoWeight\ngrades\nvaccinations\niStudyGuides"
+  },
+  {
+    "objectID": "examples/kikoWeight.html",
+    "href": "examples/kikoWeight.html",
+    "title": "kikoWeight",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(eeptools)\nlibrary(ggthemes)\n\n\n\n\n\ntb &lt;- tribble (\n  ~date, ~kg,\n  \"2020-08-20\", 4.8,\n  \"2020-09-20\", 5.5,\n  \"2020-09-26\", 6.0,\n  \"2020-10-12\", 6.8,\n  \"2020-11-03\", 7.3,\n  \"2020-12-26\", 8.3,\n  \"2021-01-08\", 8.5,\n  \"2021-02-22\", 9.1,\n  \"2021-03-28\", 9.7,\n  \"2021-04-17\", 10.1,\n  \"2021-08-02\", 10.5,\n  \"2022-01-21\", 11.3,\n  \"2022-04-02\", 12.2,\n)\n\ndob = as.Date(\"2020-04-17\")\ntb$date &lt;- as.Date(tb$date)\n\n\ntb &lt;- tb %&gt;%\n      mutate(age=age_calc(dob,tb$date, units=\"months\"))\ntb\n\n# A tibble: 13 × 3\n   date          kg   age\n   &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;\n 1 2020-08-20   4.8  4.10\n 2 2020-09-20   5.5  5.1 \n 3 2020-09-26   6    5.3 \n 4 2020-10-12   6.8  5.82\n 5 2020-11-03   7.3  6.55\n 6 2020-12-26   8.3  8.29\n 7 2021-01-08   8.5  8.71\n 8 2021-02-22   9.1 10.2 \n 9 2021-03-28   9.7 11.4 \n10 2021-04-17  10.1 12   \n11 2021-08-02  10.5 15.5 \n12 2022-01-21  11.3 21.1 \n13 2022-04-02  12.2 23.5 \n\n\n\n\n\n\n# library(ggthemes)\np1&lt;-ggplot(tb, aes(x=age, y=kg))+\n  geom_line(color=\"blue\")+\n  geom_point()+\n  theme_clean()+\n  labs(title=\"Kiko's Weight\",\n       subtitle=\"Birthday: 17 Apr 2020\",\n       x=\"Age in months\",\n       y=\"Kilograms\")+\n  scale_x_continuous(limits=c(4,26),\n                     breaks=c(seq(4,24, by=2)))+\n  annotate(\"text\",24.0,12.5,label=\"02Apr22\")\np1",
+    "crumbs": [
+      "Examples",
+      "kikoWeight"
+    ]
+  },
+  {
+    "objectID": "examples/kikoWeight.html#kikoweights",
+    "href": "examples/kikoWeight.html#kikoweights",
+    "title": "kikoWeight",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(eeptools)\nlibrary(ggthemes)\n\n\n\n\n\ntb &lt;- tribble (\n  ~date, ~kg,\n  \"2020-08-20\", 4.8,\n  \"2020-09-20\", 5.5,\n  \"2020-09-26\", 6.0,\n  \"2020-10-12\", 6.8,\n  \"2020-11-03\", 7.3,\n  \"2020-12-26\", 8.3,\n  \"2021-01-08\", 8.5,\n  \"2021-02-22\", 9.1,\n  \"2021-03-28\", 9.7,\n  \"2021-04-17\", 10.1,\n  \"2021-08-02\", 10.5,\n  \"2022-01-21\", 11.3,\n  \"2022-04-02\", 12.2,\n)\n\ndob = as.Date(\"2020-04-17\")\ntb$date &lt;- as.Date(tb$date)\n\n\ntb &lt;- tb %&gt;%\n      mutate(age=age_calc(dob,tb$date, units=\"months\"))\ntb\n\n# A tibble: 13 × 3\n   date          kg   age\n   &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;\n 1 2020-08-20   4.8  4.10\n 2 2020-09-20   5.5  5.1 \n 3 2020-09-26   6    5.3 \n 4 2020-10-12   6.8  5.82\n 5 2020-11-03   7.3  6.55\n 6 2020-12-26   8.3  8.29\n 7 2021-01-08   8.5  8.71\n 8 2021-02-22   9.1 10.2 \n 9 2021-03-28   9.7 11.4 \n10 2021-04-17  10.1 12   \n11 2021-08-02  10.5 15.5 \n12 2022-01-21  11.3 21.1 \n13 2022-04-02  12.2 23.5 \n\n\n\n\n\n\n# library(ggthemes)\np1&lt;-ggplot(tb, aes(x=age, y=kg))+\n  geom_line(color=\"blue\")+\n  geom_point()+\n  theme_clean()+\n  labs(title=\"Kiko's Weight\",\n       subtitle=\"Birthday: 17 Apr 2020\",\n       x=\"Age in months\",\n       y=\"Kilograms\")+\n  scale_x_continuous(limits=c(4,26),\n                     breaks=c(seq(4,24, by=2)))+\n  annotate(\"text\",24.0,12.5,label=\"02Apr22\")\np1",
+    "crumbs": [
+      "Examples",
+      "kikoWeight"
+    ]
+  },
+  {
+    "objectID": "examples/grades.html",
+    "href": "examples/grades.html",
+    "title": "grades",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(stats)\n\n\n\n\n\na &lt;- str_c(\"SD\",101:110)\nset.seed(6)\nb &lt;- round(rnorm(n=10, mean=10, sd=3),0)\nc &lt;- round(runif(n=10, min=10, max=50),0)\nd &lt;- round(rnorm(n=10, mean=60, sd=10),0)\ndf1 &lt;- data.frame(ID=a, Test1=b, Test2=c, Exam=d)\n\n\ndf2 &lt;- mutate(df1,\n          TotScore = Test1+0.4*Test2+0.6*Exam)\ndf2\n\n      ID Test1 Test2 Exam TotScore\n1  SD101    11    48   61     66.8\n2  SD102     8    43   77     71.4\n3  SD103    13    15   49     48.4\n4  SD104    15    20   57     57.2\n5  SD105    10    40   82     75.2\n6  SD106    11    23   65     59.2\n7  SD107     6    24   46     43.2\n8  SD108    12    47   80     78.8\n9  SD109    10    21   48     47.2\n10 SD110     7    27   62     55.0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngletters&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nletter.grades&lt;-cut(df2$TotScore, c(0,40,44,49,54,59,64,69,74,79,84,100),right=TRUE, labels=gletters)\nletter.grades\n\n [1] B  B+ D+ C+ A- B- D  A- D+ C+\nLevels: F D D+ C C+ B- B B+ A- A A+\n\n\n\n\n\n\ndf3&lt;-data.frame(StdID=df2$ID,TotScore=df2$TotScore,Grade=letter.grades)\ndf3\n\n   StdID TotScore Grade\n1  SD101     66.8     B\n2  SD102     71.4    B+\n3  SD103     48.4    D+\n4  SD104     57.2    C+\n5  SD105     75.2    A-\n6  SD106     59.2    B-\n7  SD107     43.2     D\n8  SD108     78.8    A-\n9  SD109     47.2    D+\n10 SD110     55.0    C+",
+    "crumbs": [
+      "Examples",
+      "grades"
+    ]
+  },
+  {
+    "objectID": "examples/grades.html#libraries",
+    "href": "examples/grades.html#libraries",
+    "title": "grades",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(stats)",
+    "crumbs": [
+      "Examples",
+      "grades"
+    ]
+  },
+  {
+    "objectID": "examples/grades.html#data",
+    "href": "examples/grades.html#data",
+    "title": "grades",
+    "section": "",
+    "text": "a &lt;- str_c(\"SD\",101:110)\nset.seed(6)\nb &lt;- round(rnorm(n=10, mean=10, sd=3),0)\nc &lt;- round(runif(n=10, min=10, max=50),0)\nd &lt;- round(rnorm(n=10, mean=60, sd=10),0)\ndf1 &lt;- data.frame(ID=a, Test1=b, Test2=c, Exam=d)\n\n\ndf2 &lt;- mutate(df1,\n          TotScore = Test1+0.4*Test2+0.6*Exam)\ndf2\n\n      ID Test1 Test2 Exam TotScore\n1  SD101    11    48   61     66.8\n2  SD102     8    43   77     71.4\n3  SD103    13    15   49     48.4\n4  SD104    15    20   57     57.2\n5  SD105    10    40   82     75.2\n6  SD106    11    23   65     59.2\n7  SD107     6    24   46     43.2\n8  SD108    12    47   80     78.8\n9  SD109    10    21   48     47.2\n10 SD110     7    27   62     55.0",
+    "crumbs": [
+      "Examples",
+      "grades"
+    ]
+  },
+  {
+    "objectID": "examples/grades.html#cut-intervals",
+    "href": "examples/grades.html#cut-intervals",
+    "title": "grades",
+    "section": "",
+    "text": "gletters&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nletter.grades&lt;-cut(df2$TotScore, c(0,40,44,49,54,59,64,69,74,79,84,100),right=TRUE, labels=gletters)\nletter.grades\n\n [1] B  B+ D+ C+ A- B- D  A- D+ C+\nLevels: F D D+ C C+ B- B B+ A- A A+",
+    "crumbs": [
+      "Examples",
+      "grades"
+    ]
+  },
+  {
+    "objectID": "examples/grades.html#lettergrades",
+    "href": "examples/grades.html#lettergrades",
+    "title": "grades",
+    "section": "",
+    "text": "df3&lt;-data.frame(StdID=df2$ID,TotScore=df2$TotScore,Grade=letter.grades)\ndf3\n\n   StdID TotScore Grade\n1  SD101     62.8    B-\n2  SD102     66.8     B\n3  SD103     37.4     F\n4  SD104     30.6     F\n5  SD105     15.6     F\n6  SD106     46.8    D+\n7  SD107     44.8    D+\n8  SD108     92.2    A+\n9  SD109     38.6     F\n10 SD110     76.0    A-",
+    "crumbs": [
+      "Examples",
+      "grades"
+    ]
+  },
+  {
+    "objectID": "examples/grades.html#assign-lettergrades",
+    "href": "examples/grades.html#assign-lettergrades",
+    "title": "grades",
+    "section": "",
+    "text": "df3&lt;-data.frame(StdID=df2$ID,TotScore=df2$TotScore,Grade=letter.grades)\ndf3\n\n   StdID TotScore Grade\n1  SD101     66.8     B\n2  SD102     71.4    B+\n3  SD103     48.4    D+\n4  SD104     57.2    C+\n5  SD105     75.2    A-\n6  SD106     59.2    B-\n7  SD107     43.2     D\n8  SD108     78.8    A-\n9  SD109     47.2    D+\n10 SD110     55.0    C+",
+    "crumbs": [
+      "Examples",
+      "grades"
     ]
   }
 ]

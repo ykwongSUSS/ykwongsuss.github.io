@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WebR - tables-frequency</title>
+<title>WebR - grades</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataframes.html" rel="next">
-<link href="../datatypes/matrices.html" rel="prev">
+<link href="../examples/vaccinations.qmd" rel="next">
+<link href="../examples/kikoWeight.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../datatypes.html">Datatypes</a></li><li class="breadcrumb-item"><a href="../datatypes/tables.html">tables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../datasets.html">Examples</a></li><li class="breadcrumb-item"><a href="../examples/grades.html">grades</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatypes/tables.html" class="sidebar-item-text sidebar-link active">
+  <a href="../datatypes/tables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">tables</span></a>
   </div>
 </li>
@@ -298,13 +298,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/kikoWeight.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../examples/kikoWeight.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">kikoWeight</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/grades.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../examples/grades.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">grades</span></a>
   </div>
 </li>
@@ -355,18 +355,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#frequency-table-also-called-a-contingency-table" id="toc-frequency-table-also-called-a-contingency-table" class="nav-link active" data-scroll-target="#frequency-table-also-called-a-contingency-table">1. Frequency table (also called a contingency table)</a></li>
-  <li><a href="#two-way-contingency-table-gender-grades" id="toc-two-way-contingency-table-gender-grades" class="nav-link" data-scroll-target="#two-way-contingency-table-gender-grades">2. Two-way Contingency table (<code>gender-grades</code>)</a></li>
-  <li><a href="#look-up---filter" id="toc-look-up---filter" class="nav-link" data-scroll-target="#look-up---filter">3. Look up - <code>filter</code></a></li>
+  <li><a href="#grades" id="toc-grades" class="nav-link active" data-scroll-target="#grades"><span class="header-section-number">1</span> Grades</a>
+  <ul class="collapse">
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="header-section-number">1.1</span> Libraries</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">1.2</span> Data</a></li>
+  <li><a href="#gradetable" id="toc-gradetable" class="nav-link" data-scroll-target="#gradetable"><span class="header-section-number">1.3</span> GradeTable</a></li>
+  <li><a href="#cut-intervals" id="toc-cut-intervals" class="nav-link" data-scroll-target="#cut-intervals"><span class="header-section-number">1.4</span> Cut Intervals</a></li>
+  <li><a href="#assign-lettergrades" id="toc-assign-lettergrades" class="nav-link" data-scroll-target="#assign-lettergrades"><span class="header-section-number">1.5</span> Assign LetterGrades</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../datatypes.html">Datatypes</a></li><li class="breadcrumb-item"><a href="../datatypes/tables.html">tables</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../datasets.html">Examples</a></li><li class="breadcrumb-item"><a href="../examples/grades.html">grades</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">tables-frequency</h1>
+<h1 class="title">grades</h1>
 </div>
 
 
@@ -383,95 +388,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="grades" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Grades</h1>
+<section id="libraries" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">1.1</span> Libraries</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fct_inorder is in tidyverse</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>id<span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"SD"</span>,<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>,<span class="at">sep=</span><span class="st">""</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ltrgrades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C+"</span>,<span class="st">"F"</span>,<span class="st">"B"</span>,<span class="st">"A+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>,<span class="st">"A"</span>,<span class="st">"C"</span>,<span class="st">"B-"</span>,<span class="st">"B-"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>gdlevels <span class="ot">&lt;-</span> <span class="fu">fct_inorder</span>(<span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>,<span class="st">"C+"</span>,<span class="st">"C"</span>,<span class="st">"D+"</span>,<span class="st">"D"</span>,<span class="st">"F"</span>))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>lgrades <span class="ot">&lt;-</span> <span class="fu">factor</span>(ltrgrades, <span class="at">levels=</span>gdlevels)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(id,gender, lgrades)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 3
-   id    gender lgrades
-   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  
- 1 SD101 M      C+     
- 2 SD102 F      F      
- 3 SD103 F      B      
- 4 SD104 F      A+     
- 5 SD105 M      B      
- 6 SD106 F      B-     
- 7 SD107 M      A      
- 8 SD108 M      C      
- 9 SD109 M      B-     
-10 SD110 M      B-     </code></pre>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<section id="frequency-table-also-called-a-contingency-table" class="level3">
-<h3 class="anchored" data-anchor-id="frequency-table-also-called-a-contingency-table">1. Frequency table (also called a contingency table)</h3>
+</section>
+<section id="data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="data"><span class="header-section-number">1.2</span> Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use table function to count frequency in lgrades</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>lgrades) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tab1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-A+  A A- B+  B B- C+  C D+  D  F 
- 1  1  0  0  2  3  1  1  0  0  1 </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"SD"</span>,<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">6</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">3</span>),<span class="dv">0</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">min=</span><span class="dv">10</span>, <span class="at">max=</span><span class="dv">50</span>),<span class="dv">0</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">mean=</span><span class="dv">60</span>, <span class="at">sd=</span><span class="dv">10</span>),<span class="dv">0</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID=</span>a, <span class="at">Test1=</span>b, <span class="at">Test2=</span>c, <span class="at">Exam=</span>d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># redo table back into a dataframe</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tab1)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"grades"</span>,<span class="st">"freq"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df1,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">TotScore =</span> Test1<span class="fl">+0.4</span><span class="sc">*</span>Test2<span class="fl">+0.6</span><span class="sc">*</span>Exam)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   grades freq
-1      A+    1
-2       A    1
-3      A-    0
-4      B+    0
-5       B    2
-6      B-    3
-7      C+    1
-8       C    1
-9      D+    0
-10      D    0
-11      F    1</code></pre>
+<pre><code>      ID Test1 Test2 Exam TotScore
+1  SD101    11    48   61     66.8
+2  SD102     8    43   77     71.4
+3  SD103    13    15   49     48.4
+4  SD104    15    20   57     57.2
+5  SD105    10    40   82     75.2
+6  SD106    11    23   65     59.2
+7  SD107     6    24   46     43.2
+8  SD108    12    47   80     78.8
+9  SD109    10    21   48     47.2
+10 SD110     7    27   62     55.0</code></pre>
 </div>
 </div>
 </section>
-<section id="two-way-contingency-table-gender-grades" class="level3">
-<h3 class="anchored" data-anchor-id="two-way-contingency-table-gender-grades">2. Two-way Contingency table (<code>gender-grades</code>)</h3>
+<section id="gradetable" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="gradetable"><span class="header-section-number">1.3</span> GradeTable</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gradeTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="cut-intervals" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="cut-intervals"><span class="header-section-number">1.4</span> Cut Intervals</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>twoWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender,tb<span class="sc">$</span>lgrades)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>twoWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gletters<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"D"</span>,<span class="st">"D+"</span>,<span class="st">"C"</span>,<span class="st">"C+"</span>,<span class="st">"B-"</span>,<span class="st">"B"</span>,<span class="st">"B+"</span>,<span class="st">"A-"</span>,<span class="st">"A"</span>,<span class="st">"A+"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>letter.grades<span class="ot">&lt;-</span><span class="fu">cut</span>(df2<span class="sc">$</span>TotScore, <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">44</span>,<span class="dv">49</span>,<span class="dv">54</span>,<span class="dv">59</span>,<span class="dv">64</span>,<span class="dv">69</span>,<span class="dv">74</span>,<span class="dv">79</span>,<span class="dv">84</span>,<span class="dv">100</span>),<span class="at">right=</span><span class="cn">TRUE</span>, <span class="at">labels=</span>gletters)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>letter.grades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   
-    A+ A A- B+ B B- C+ C D+ D F
-  F  1 0  0  0 1  1  0 0  0 0 1
-  M  0 1  0  0 1  2  1 1  0 0 0</code></pre>
+<pre><code> [1] B  B+ D+ C+ A- B- D  A- D+ C+
+Levels: F D D+ C C+ B- B B+ A- A A+</code></pre>
 </div>
 </div>
 </section>
-<section id="look-up---filter" class="level3">
-<h3 class="anchored" data-anchor-id="look-up---filter">3. Look up - <code>filter</code></h3>
-<p>find those that have B-</p>
+<section id="assign-lettergrades" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="assign-lettergrades"><span class="header-section-number">1.5</span> Assign LetterGrades</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(tb,lgrades<span class="sc">==</span><span class="st">"B-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df3<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">StdID=</span>df2<span class="sc">$</span>ID,<span class="at">TotScore=</span>df2<span class="sc">$</span>TotScore,<span class="at">Grade=</span>letter.grades)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-  id    gender lgrades
-  &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  
-1 SD106 F      B-     
-2 SD109 M      B-     
-3 SD110 M      B-     </code></pre>
+<pre><code>   StdID TotScore Grade
+1  SD101     66.8     B
+2  SD102     71.4    B+
+3  SD103     48.4    D+
+4  SD104     57.2    C+
+5  SD105     75.2    A-
+6  SD106     59.2    B-
+7  SD107     43.2     D
+8  SD108     78.8    A-
+9  SD109     47.2    D+
+10 SD110     55.0    C+</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -886,13 +882,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../datatypes/matrices.html" class="pagination-link" aria-label="matrices">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">matrices</span>
+      <a href="../examples/kikoWeight.html" class="pagination-link" aria-label="kikoWeight">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">kikoWeight</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../dataframes.html" class="pagination-link" aria-label="DataFrames">
-        <span class="nav-page-text">DataFrames</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../examples/vaccinations.qmd" class="pagination-link" aria-label="vaccinations">
+        <span class="nav-page-text">vaccinations</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

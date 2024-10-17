@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">YAML</span></a>
+ <span class="menu-text">yaml</span></a>
   </div>
 </li>
       </ul>
@@ -326,8 +326,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mix-types-with-different-lengths" id="toc-mix-types-with-different-lengths" class="nav-link active" data-scroll-target="#mix-types-with-different-lengths"><span class="header-section-number">1</span> Mix Types with different lengths</a></li>
-  <li><a href="#convert-named-list-to-tibbledataframe" id="toc-convert-named-list-to-tibbledataframe" class="nav-link" data-scroll-target="#convert-named-list-to-tibbledataframe"><span class="header-section-number">2</span> Convert named list to tibble/dataframe</a></li>
+  <li><a href="#mix-types-with-different-lengths" id="toc-mix-types-with-different-lengths" class="nav-link active" data-scroll-target="#mix-types-with-different-lengths"><span class="header-section-number">1</span> Mix <code>types</code> with different lengths</a></li>
+  <li><a href="#convert-named-list-to-tibbledataframe" id="toc-convert-named-list-to-tibbledataframe" class="nav-link" data-scroll-target="#convert-named-list-to-tibbledataframe"><span class="header-section-number">2</span> Convert <code>named list</code> to tibble/dataframe</a></li>
   </ul>
 </nav>
     </div>
@@ -354,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="mix-types-with-different-lengths" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="mix-types-with-different-lengths"><span class="header-section-number">1</span> Mix Types with different lengths</h2>
+<h2 data-number="1" class="anchored" data-anchor-id="mix-types-with-different-lengths"><span class="header-section-number">1</span> Mix <code>types</code> with different lengths</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can mix different types</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">fruits =</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"bananas"</span>),<span class="at">qty=</span><span class="fu">c</span>(<span class="dv">120</span>,<span class="dv">180</span>),<span class="at">total =</span> <span class="dv">300</span>)</span>
@@ -393,7 +393,7 @@ $total
 </div>
 </section>
 <section id="convert-named-list-to-tibbledataframe" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="convert-named-list-to-tibbledataframe"><span class="header-section-number">2</span> Convert named list to tibble/dataframe</h2>
+<h2 data-number="2" class="anchored" data-anchor-id="convert-named-list-to-tibbledataframe"><span class="header-section-number">2</span> Convert <code>named list</code> to tibble/dataframe</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">fruit=</span>list1<span class="sc">$</span>fruit, <span class="at">quantity=</span>list1<span class="sc">$</span>qty)</span>
