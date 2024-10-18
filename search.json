@@ -147,7 +147,7 @@
     "href": "datatypes/strings.html",
     "title": "strings",
     "section": "",
-    "text": "tolower\ntoupper\nsubstring\npaste\n\n\n\n\n# single letter single quotes\n# multiple letters use double quotes\n\nc1 &lt;- c(\"I believe\")\nstr(c1)\n\n chr \"I believe\"\n\ntypeof(c1)\n\n[1] \"character\"\n\n# lowercase\nc2 &lt;- tolower(c1)\nstr(c2)\n\n chr \"i believe\"\n\n# paste to merge strings -- concat\nc3 &lt;- paste(\"I really\",\"believe\")  \nstr(c3)\n\n chr \"I really believe\"",
+    "text": "library(tidyverse)\n# single letter single quotes\n# multiple letters use double quotes\n\ns1 &lt;- c(\"I believe\")\nstr(s1)\n\n chr \"I believe\"\n\ntypeof(s1)\n\n[1] \"character\"\n\n\n\n\n\n# str_c to concat strings\ns2 &lt;- str_c(\"I really\",\" believe \")\n\n\n\n\n\n# lowercase\nstr_to_lower(s2)\n\n[1] \"i really believe \"\n\nstr_length(s2)\n\n[1] 17\n\n# remove spaces\ns3 &lt;- str_trim(s2, side=\"both\")\ns3\n\n[1] \"I really believe\"\n\nstr_length(s3)\n\n[1] 16\n\n\n\n\n\n\n\n# output of website crawling\nt0 &lt;- \"gets%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"gets\"   \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n\n\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0, \"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,split=\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
     "crumbs": [
       "Datatypes",
       "strings"
@@ -168,8 +168,8 @@
     "objectID": "datatypes/strings.html#tidyverse-string-functions",
     "href": "datatypes/strings.html#tidyverse-string-functions",
     "title": "strings",
-    "section": "2 tidyverse string functions",
-    "text": "2 tidyverse string functions\n\n\n\n\n\n\nstr_c\nstr_length\nstr_sub\nstr_trim\n\n\n\n\nlibrary(tidyverse)\n\ns0 &lt;- str_c(\"  I almost believe \")\nstr(s0)\n\n chr \"  I almost believe \"\n\nstr_length(s0)\n\n[1] 19\n\n# remove spaces\ns1 &lt;- str_trim(s0, side=\"both\")\ns1\n\n[1] \"I almost believe\"\n\nstr_length(s1)\n\n[1] 16\n\n\n\n\n2.1 strsplit (returns a list)\n\n# output of website crawling\nt0 &lt;- \"get%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"get\"    \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n2.2 split into chars\n\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0, \"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n2.3 split into words\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n2.4 regex can be used in strsplit\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,split=\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
+    "section": "",
+    "text": "library(tidyverse)\n# single letter single quotes\n# multiple letters use double quotes\n\ns1 &lt;- c(\"I believe\")\nstr(s1)\n\n chr \"I believe\"\n\ntypeof(s1)\n\n[1] \"character\"\n\n# lowercase\ns2 &lt;- str_to_lower(s1)\nstr(s2)\n\n chr \"i believe\"\n\n# paste to merge strings -- concat\ns3 &lt;- str_c(\"I really\",\" believe\")  \nstr(s3)\n\n chr \"I really believe\"",
     "crumbs": [
       "Datatypes",
       "strings"
@@ -180,7 +180,7 @@
     "href": "datatypes/numbers.html",
     "title": "numbers",
     "section": "",
-    "text": "# default is double\na &lt;- 2 + 3\nstr(a)\n\n num 5\n\ntypeof(a)\n\n[1] \"double\"\n\n# add L if you want integers\nb &lt;- 2L + 3L\ntypeof(b)\n\n[1] \"integer\"\n\n# or onvert with as.integer\nb2 &lt;- as.integer(b)\ntypeof(b2)\n\n[1] \"integer\"\n\n# float-decimals\nc &lt;- pi/3\nstr(c)\n\n num 1.05\n\nc(c, typeof(c))\n\n[1] \"1.0471975511966\" \"double\"",
+    "text": "# default is double\na &lt;- 2 + 3\nstr(a)\n\n num 5\n\ntypeof(a)\n\n[1] \"double\"\n\n# convert with as.integer\na1 &lt;- as.integer(a)\nstr(a1)\n\n int 5\n\ntypeof(a1)\n\n[1] \"integer\"\n\n# add L if you want integer\nb &lt;- 2L + 3L\ntypeof(b)\n\n[1] \"integer\"\n\n# float-decimals\nc &lt;- pi/3\nstr(c)\n\n num 1.05\n\nc(c, typeof(c))\n\n[1] \"1.0471975511966\" \"double\"",
     "crumbs": [
       "Datatypes",
       "numbers"
@@ -191,7 +191,7 @@
     "href": "datatypes/numbers.html#num",
     "title": "numbers",
     "section": "",
-    "text": "# default is double\na &lt;- 2 + 3\nstr(a)\n\n num 5\n\ntypeof(a)\n\n[1] \"double\"\n\n# add L if you want integers\nb &lt;- 2L + 3L\ntypeof(b)\n\n[1] \"integer\"\n\n# or onvert with as.integer\nb2 &lt;- as.integer(b)\ntypeof(b2)\n\n[1] \"integer\"\n\n# float-decimals\nc &lt;- pi/3\nstr(c)\n\n num 1.05\n\nc(c, typeof(c))\n\n[1] \"1.0471975511966\" \"double\"",
+    "text": "# default is double\na &lt;- 2 + 3\nstr(a)\n\n num 5\n\ntypeof(a)\n\n[1] \"double\"\n\n# convert with as.integer\na1 &lt;- as.integer(a)\nstr(a1)\n\n int 5\n\ntypeof(a1)\n\n[1] \"integer\"\n\n# add L if you want integer\nb &lt;- 2L + 3L\ntypeof(b)\n\n[1] \"integer\"\n\n# float-decimals\nc &lt;- pi/3\nstr(c)\n\n num 1.05\n\nc(c, typeof(c))\n\n[1] \"1.0471975511966\" \"double\"",
     "crumbs": [
       "Datatypes",
       "numbers"
@@ -537,7 +537,7 @@
     "href": "datatypes/dates.html",
     "title": "dates",
     "section": "",
-    "text": "Before importing from Excel it is probably a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g. 2021-05-12). It will make things consistent and easier.\nUse library(rio) and import - it will ensure that the date format is kept.\nlibrary(lubridate) is part of tidyverse.\nUse `tibble`to check if Dates are recognized correctly before filtering\n\n\nlibrary(tidyverse)\nlibrary(rio)\n\ndf &lt;- import(\"../assets/Vaccines.csv\")\ntibble(df)\n\n# A tibble: 10 × 3\n   Date       OneDose TwoDose\n   &lt;IDate&gt;      &lt;int&gt;   &lt;int&gt;\n 1 2021-01-11    3400       0\n 2 2021-01-12    6200       0\n 3 2021-01-22   60000       0\n 4 2021-01-27  113000      50\n 5 2021-01-31  155000      50\n 6 2021-02-02  175000    6000\n 7 2021-02-10  250000    6000\n 8 2021-02-18  250000  110000\n 9 2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n\n\nfilter(df, Date&gt;=\"2021-02-02\" & Date &lt; \"2021-03-01\")\n\n        Date OneDose TwoDose\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n\n\n\nfilter(df, Date &gt; \"2021-01-31\")\n\n        Date OneDose TwoDose\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n4 2021-03-01  317715  207324\n5 2021-03-04  350000  215000",
+    "text": "Before importing from Excel it is a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g. 2021-05-12). It will make things consistent and easier.\nuse here::here() to establish the working directory\nlibrary(lubridate) is part of tidyverse.\nUse str()to check if Dates are recognized correctly before filtering\n\n\nlibrary(tidyverse)\nlibrary(here)\ndf1 &lt;- read_csv(here::here(\"./assets/vaccines.csv\"))\ndf1\n\n# A tibble: 10 × 3\n   Date       OneDose TwoDose\n   &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n 1 2021-01-11    3400       0\n 2 2021-01-12    6200       0\n 3 2021-01-22   60000       0\n 4 2021-01-27  113000      50\n 5 2021-01-31  155000      50\n 6 2021-02-02  175000    6000\n 7 2021-02-10  250000    6000\n 8 2021-02-18  250000  110000\n 9 2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n\n\nfilter(df1, Date&gt;=\"2021-02-02\" & Date &lt; \"2021-03-01\")\n\n# A tibble: 3 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n\n\n\nfilter(df1, Date &gt; \"2021-01-31\")\n\n# A tibble: 5 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n4 2021-03-01  317715  207324\n5 2021-03-04  350000  215000",
     "crumbs": [
       "Datatypes",
       "dates"
@@ -548,7 +548,7 @@
     "href": "datatypes/dates.html#filtering-with-dates",
     "title": "dates",
     "section": "",
-    "text": "Before importing from Excel it is probably a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g. 2021-05-12). It will make things consistent and easier.\nUse library(rio) and import - it will ensure that the date format is kept.\nlibrary(lubridate) is part of tidyverse.\nUse `tibble`to check if Dates are recognized correctly before filtering\n\n\nlibrary(tidyverse)\nlibrary(rio)\n\ndf &lt;- import(\"../assets/Vaccines.csv\")\ntibble(df)\n\n# A tibble: 10 × 3\n   Date       OneDose TwoDose\n   &lt;IDate&gt;      &lt;int&gt;   &lt;int&gt;\n 1 2021-01-11    3400       0\n 2 2021-01-12    6200       0\n 3 2021-01-22   60000       0\n 4 2021-01-27  113000      50\n 5 2021-01-31  155000      50\n 6 2021-02-02  175000    6000\n 7 2021-02-10  250000    6000\n 8 2021-02-18  250000  110000\n 9 2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n\n\nfilter(df, Date&gt;=\"2021-02-02\" & Date &lt; \"2021-03-01\")\n\n        Date OneDose TwoDose\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n\n\n\nfilter(df, Date &gt; \"2021-01-31\")\n\n        Date OneDose TwoDose\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n4 2021-03-01  317715  207324\n5 2021-03-04  350000  215000",
+    "text": "Before importing from Excel it is a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g. 2021-05-12). It will make things consistent and easier.\nuse here::here() to establish the working directory\nlibrary(lubridate) is part of tidyverse.\nUse str()to check if Dates are recognized correctly before filtering\n\n\nlibrary(tidyverse)\nlibrary(here)\ndf1 &lt;- read_csv(here::here(\"./assets/vaccines.csv\"))\ndf1\n\n# A tibble: 10 × 3\n   Date       OneDose TwoDose\n   &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n 1 2021-01-11    3400       0\n 2 2021-01-12    6200       0\n 3 2021-01-22   60000       0\n 4 2021-01-27  113000      50\n 5 2021-01-31  155000      50\n 6 2021-02-02  175000    6000\n 7 2021-02-10  250000    6000\n 8 2021-02-18  250000  110000\n 9 2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n\n\nfilter(df1, Date&gt;=\"2021-02-02\" & Date &lt; \"2021-03-01\")\n\n# A tibble: 3 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n\n\n\nfilter(df1, Date &gt; \"2021-01-31\")\n\n# A tibble: 5 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n4 2021-03-01  317715  207324\n5 2021-03-04  350000  215000",
     "crumbs": [
       "Datatypes",
       "dates"
@@ -559,7 +559,7 @@
     "href": "datatypes/dates.html#calculating-age-from-dates",
     "title": "dates",
     "section": "2 Calculating age from Dates",
-    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse) #includes lubridate, readr\nlibrary(eeptools)\n\ndf &lt;- read_csv(\"Name, dob\n               HANKS Tom, 1956-07-09\n               SANDLER Adam, 1966-09-09\n               SMITH Will, 1968-09-25\n               CUMBERBATCH Benedict, 1976-07-19\n               FOX Megan, 1986-05-16\n               STONE Emma, 1988-11-06\n               RADCLIFFE Daniel, 1989-07-23\n               STEWART Kirsten, 1990-04-09\n               WATSON Emma, 1990-04-15\n               \")\ndf$dob &lt;- as.Date(df$dob)\ntibble(df)\n\n# A tibble: 9 × 2\n  Name                 dob       \n  &lt;chr&gt;                &lt;date&gt;    \n1 HANKS Tom            1956-07-09\n2 SANDLER Adam         1966-09-09\n3 SMITH Will           1968-09-25\n4 CUMBERBATCH Benedict 1976-07-19\n5 FOX Megan            1986-05-16\n6 STONE Emma           1988-11-06\n7 RADCLIFFE Daniel     1989-07-23\n8 STEWART Kirsten      1990-04-09\n9 WATSON Emma          1990-04-15\n\ndf &lt;- arrange(df,-desc(dob))\ndf\n\n# A tibble: 9 × 2\n  Name                 dob       \n  &lt;chr&gt;                &lt;date&gt;    \n1 HANKS Tom            1956-07-09\n2 SANDLER Adam         1966-09-09\n3 SMITH Will           1968-09-25\n4 CUMBERBATCH Benedict 1976-07-19\n5 FOX Megan            1986-05-16\n6 STONE Emma           1988-11-06\n7 RADCLIFFE Daniel     1989-07-23\n8 STEWART Kirsten      1990-04-09\n9 WATSON Emma          1990-04-15\n\ndf1&lt;- df %&gt;%  mutate(age=age_calc(dob,units=\"years\")) %&gt;%\n      mutate(mth=month(dob))\ndf1$mth&lt;-month.abb[df1$mth]\ndf1\n\n# A tibble: 9 × 4\n  Name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.3 Jul  \n2 SANDLER Adam         1966-09-09  58.1 Sep  \n3 SMITH Will           1968-09-25  56.1 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.2 Jul  \n5 FOX Megan            1986-05-16  38.4 May  \n6 STONE Emma           1988-11-06  35.9 Nov  \n7 RADCLIFFE Daniel     1989-07-23  35.2 Jul  \n8 STEWART Kirsten      1990-04-09  34.5 Apr  \n9 WATSON Emma          1990-04-15  34.5 Apr",
+    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.3 Jul  \n2 SANDLER Adam         1966-09-09  58.1 Sep  \n3 SMITH Will           1968-09-25  56.1 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.2 Jul  \n5 FOX Megan            1986-05-16  38.4 May  \n6 STONE Emma           1988-11-06  35.9 Nov",
     "crumbs": [
       "Datatypes",
       "dates"
@@ -570,7 +570,7 @@
     "href": "datatypes/factors.html",
     "title": "factors",
     "section": "",
-    "text": "# defining factors\nf1 &lt;- factor(c(\"head\",\"tail\"))\nstr(f1)\n\n Factor w/ 2 levels \"head\",\"tail\": 1 2",
+    "text": "# usual to convert strings to factors\nch &lt;- c(\"plus\",\"minus\")\nch\n\n[1] \"plus\"  \"minus\"\n\n# note: levels are alphabetical\nfch &lt;- factor(ch)\nfch\n\n[1] plus  minus\nLevels: minus plus\n\n# or using `as.factor`\nas.factor(ch)\n\n[1] plus  minus\nLevels: minus plus",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -580,8 +580,8 @@
     "objectID": "datatypes/factors.html#ordering-of-factors",
     "href": "datatypes/factors.html#ordering-of-factors",
     "title": "factors",
-    "section": "1 Ordering of factors",
-    "text": "1 Ordering of factors\n\n1.1 Using fct_inorder()\n\nsch0 &lt;- factor(c(\"SBIZ\",\"NSHD\",\"SHBS\",\"SST\",\"SLAW\"))\nsch0\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: NSHD SBIZ SHBS SLAW SST\n\n\n\nthe Levels default to an alphabetical sequence, but\nnow I want to list factors Levels by the order in which they first appear\nsch1 Levels will now follow the sequence of sch0 (i.e. SBIZ..)\n\n\nlibrary(tidyverse) #include forcats\nsch1 &lt;- fct_inorder(sch0)\nsch1\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: SBIZ NSHD SHBS SST SLAW\n\n\n\nor I can re-factor sch0 again by making the Levels unique to sch0\n\n\nsch2 &lt;- factor(sch0, levels=unique(sch0))\nsch2\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: SBIZ NSHD SHBS SST SLAW\n\n\n\nthirdly, you can factor and specify the order of Levels\n(which is probably the most direct way)\n\n\n  sch3 &lt;- factor(c(\"SBIZ\",\"NSHD\",\"SHBS\",\"SST\",\"SLAW\"),\n                 levels=c(\"SBIZ\",\"NSHD\",\"SHBS\",\"SST\",\"SLAW\"))\n  sch3\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: SBIZ NSHD SHBS SST SLAW",
+    "section": "2 Ordering of factors",
+    "text": "2 Ordering of factors\n\n2.1 Using fct_inorder()\n\n# factor\nsch0 &lt;- factor(c(\"SBIZ\",\"NSHD\",\"SHBS\",\"SST\",\"SLAW\"))\nlevels(sch0)\n\n[1] \"NSHD\" \"SBIZ\" \"SHBS\" \"SLAW\" \"SST\" \n\n\n\nthe Levels default to an alphabetical sequence, but\nnow I want to list factors Levels by the order in which they first appear\nsch1 Levels will now follow the sequence of sch (starting with SBIZ..)\n\n\n# 1. fct_inorder (easiest but need tidyverse)\nlibrary(tidyverse) #include forcats\nsch1 &lt;- fct_inorder(sch0)\nsch1\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: SBIZ NSHD SHBS SST SLAW\n\n\n\nor I can re-factor sch0 again by making the Levels unique to sch0\n\n\n# 2. levels=unique()\nsch2 &lt;- factor(sch0, levels=unique(sch0))\nsch2\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: SBIZ NSHD SHBS SST SLAW\n\n\n\nthirdly, you can factor and specify the order of Levels\n(which is probably the most direct way)\n\n\n# 3. specify levels=...\nsch3 &lt;- factor(sch0,\n               levels=c(\"SBIZ\",\"NSHD\",\"SHBS\",\"SST\",\"SLAW\"))\nsch3\n\n[1] SBIZ NSHD SHBS SST  SLAW\nLevels: SBIZ NSHD SHBS SST SLAW",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -591,8 +591,8 @@
     "objectID": "datatypes/factors.html#renaming-factors",
     "href": "datatypes/factors.html#renaming-factors",
     "title": "factors",
-    "section": "2 Renaming Factors",
-    "text": "2 Renaming Factors\n\ntb&lt;-tribble(\n~Dept, ~Views,\n\"Learning Systems and Applications\", 2349,\n\"Student Support\", 683,\n\"Student Support\", 697,\n\"Student Support\", 534,\n\"Teaching and Learning Center\",345,\n\"School of Humanities and Behavioral Sciences\",324,\n\"Digital Library Services\",223\n)\ntb\n\n# A tibble: 7 × 2\n  Dept                                         Views\n  &lt;chr&gt;                                        &lt;dbl&gt;\n1 Learning Systems and Applications             2349\n2 Student Support                                683\n3 Student Support                                697\n4 Student Support                                534\n5 Teaching and Learning Center                   345\n6 School of Humanities and Behavioral Sciences   324\n7 Digital Library Services                       223\n\n\n\ntb$Dept &lt;- as.factor(tb$Dept) # change chr to factor\nlevels(tb$Dept)\n\n[1] \"Digital Library Services\"                    \n[2] \"Learning Systems and Applications\"           \n[3] \"School of Humanities and Behavioral Sciences\"\n[4] \"Student Support\"                             \n[5] \"Teaching and Learning Center\"                \n\n\n\ntb$Dept &lt;- fct_recode(tb$Dept,\n           DLS=\"Digital Library Services\",\n           LSA = \"Learning Systems and Applications\",\n           SHBS = \"School of Humanities and Behavioral Sciences\",\n           TLC = \"Teaching and Learning Center\",\n           SS = \"Student Support\")\ntb\n\n# A tibble: 7 × 2\n  Dept  Views\n  &lt;fct&gt; &lt;dbl&gt;\n1 LSA    2349\n2 SS      683\n3 SS      697\n4 SS      534\n5 TLC     345\n6 SHBS    324\n7 DLS     223\n\n\n\ntb$Dept\n\n[1] LSA  SS   SS   SS   TLC  SHBS DLS \nLevels: DLS LSA SHBS SS TLC",
+    "section": "3 Renaming Factors",
+    "text": "3 Renaming Factors\n\ntb&lt;-tribble(\n~Dept, ~Views,\n\"Learning Systems and Applications\", 2349,\n\"Student Support\", 683,\n\"Student Support\", 697,\n\"Student Support\", 534,\n\"Teaching and Learning Center\",345,\n\"School of Humanities and Behavioral Sciences\",324,\n\"Digital Library Services\",223\n)\ntb\n\n# A tibble: 7 × 2\n  Dept                                         Views\n  &lt;chr&gt;                                        &lt;dbl&gt;\n1 Learning Systems and Applications             2349\n2 Student Support                                683\n3 Student Support                                697\n4 Student Support                                534\n5 Teaching and Learning Center                   345\n6 School of Humanities and Behavioral Sciences   324\n7 Digital Library Services                       223\n\n\n\ntb$Dept &lt;- as.factor(tb$Dept) # change chr to factor\nlevels(tb$Dept)\n\n[1] \"Digital Library Services\"                    \n[2] \"Learning Systems and Applications\"           \n[3] \"School of Humanities and Behavioral Sciences\"\n[4] \"Student Support\"                             \n[5] \"Teaching and Learning Center\"                \n\n\n\ntb$Dept &lt;- fct_recode(tb$Dept,\n           DLS=\"Digital Library Services\",\n           LSA = \"Learning Systems and Applications\",\n           SHBS = \"School of Humanities and Behavioral Sciences\",\n           TLC = \"Teaching and Learning Center\",\n           SS = \"Student Support\")\ntb\n\n# A tibble: 7 × 2\n  Dept  Views\n  &lt;fct&gt; &lt;dbl&gt;\n1 LSA    2349\n2 SS      683\n3 SS      697\n4 SS      534\n5 TLC     345\n6 SHBS    324\n7 DLS     223\n\n\n\ntb$Dept\n\n[1] LSA  SS   SS   SS   TLC  SHBS DLS \nLevels: DLS LSA SHBS SS TLC",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -1176,5 +1176,45 @@
       "Examples",
       "grades"
     ]
+  },
+  {
+    "objectID": "datatypes/factors.html#defining-factors",
+    "href": "datatypes/factors.html#defining-factors",
+    "title": "factors",
+    "section": "",
+    "text": "# usual to convert strings to factors\nch &lt;- c(\"plus\",\"minus\")\nch\n\n[1] \"plus\"  \"minus\"\n\n# note: levels are alphabetical\nfch &lt;- factor(ch)\nfch\n\n[1] plus  minus\nLevels: minus plus\n\n# or using `as.factor`\nas.factor(ch)\n\n[1] plus  minus\nLevels: minus plus",
+    "crumbs": [
+      "Datatypes",
+      "factors"
+    ]
+  },
+  {
+    "objectID": "datatypes/strings.html#tidyverse-string-functions-1",
+    "href": "datatypes/strings.html#tidyverse-string-functions-1",
+    "title": "strings",
+    "section": "2 tidyverse string functions",
+    "text": "2 tidyverse string functions\n\n\n\n\n\n\nstr_c\nstr_length\nstr_sub\nstr_trim\n\n\n\n\nlibrary(tidyverse)\n\ns0 &lt;- str_c(\"  I almost believe \")\nstr(s0)\n\n chr \"  I almost believe \"\n\nstr_length(s0)\n\n[1] 19\n\n# remove spaces\ns1 &lt;- str_trim(s0, side=\"both\")\ns1\n\n[1] \"I almost believe\"\n\nstr_length(s1)\n\n[1] 16\n\n\n\n\n2.1 strsplit (returns a list)\n\n# output of website crawling\nt0 &lt;- \"get%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"get\"    \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n2.2 split into chars\n\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0, \"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n2.3 split into words\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n2.4 regex can be used in strsplit\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,split=\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
+    "crumbs": [
+      "Datatypes",
+      "strings"
+    ]
+  },
+  {
+    "objectID": "datatypes/strings.html#tidyverse-stringr",
+    "href": "datatypes/strings.html#tidyverse-stringr",
+    "title": "strings",
+    "section": "",
+    "text": "library(tidyverse)\n# single letter single quotes\n# multiple letters use double quotes\n\ns1 &lt;- c(\"I believe\")\nstr(s1)\n\n chr \"I believe\"\n\ntypeof(s1)\n\n[1] \"character\"\n\n\n\n\n\n# str_c to concat strings\ns2 &lt;- str_c(\"I really\",\" believe \")\n\n\n\n\n\n# lowercase\nstr_to_lower(s2)\n\n[1] \"i really believe \"\n\nstr_length(s2)\n\n[1] 17\n\n# remove spaces\ns3 &lt;- str_trim(s2, side=\"both\")\ns3\n\n[1] \"I really believe\"\n\nstr_length(s3)\n\n[1] 16\n\n\n\n\n\n\n\n# output of website crawling\nt0 &lt;- \"gets%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"gets\"   \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n\n\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0, \"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,split=\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
+    "crumbs": [
+      "Datatypes",
+      "strings"
+    ]
+  },
+  {
+    "objectID": "datatypes/fct_inorder.html",
+    "href": "datatypes/fct_inorder.html",
+    "title": "fct_inorder",
+    "section": "",
+    "text": "Dataset\n\nlibrary(tidyverse)\ntb &lt;- tribble(\n  ~cancer, ~cases, ~sex,\n  \"Colorectal\", 66, \"M\",\n   \"Liver\", 29, \"M\",\n   \"Skin\", 21, \"M\",\n   \"Kidney\", 17, \"M\",\n   \"Colorectal\", 12, \"F\",\n   \"Skin\", 17, \"F\",\n)\ntb$cancer &lt;- tb$cancer |&gt; factor()\ntb$sex &lt;- tb$sex |&gt; factor()\ntb\n\n# A tibble: 6 × 3\n  cancer     cases sex  \n  &lt;fct&gt;      &lt;dbl&gt; &lt;fct&gt;\n1 Colorectal    66 M    \n2 Liver         29 M    \n3 Skin          21 M    \n4 Kidney        17 M    \n5 Colorectal    12 F    \n6 Skin          17 F    \n\n\n\n\n\n\n\n\nNote\n\n\n\nDefault factor levels are placed alphabetically and are so plotted on ggplot2. To change the sequence use fct_inorder\n\n\n\nlevels(tb$cancer)\n\n[1] \"Colorectal\" \"Kidney\"     \"Liver\"      \"Skin\"      \n\ntb$cancer &lt;- fct_inorder(tb$cancer)\nlevels(tb$cancer)\n\n[1] \"Colorectal\" \"Liver\"      \"Skin\"       \"Kidney\"    \n\n\n\n\n\n\n\n\nNote\n\n\n\nThere’s also fct_inseq and fct_infreq (by number of observations with each level). They are found in the forcats package under tidyverse. Ref: https://forcats.tidyverse.org/reference/fct_inorder.html"
   }
 ]

@@ -382,21 +382,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="filtering-with-dates" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="filtering-with-dates"><span class="header-section-number">1</span> Filtering with Dates</h2>
 <ol type="1">
-<li>Before importing from Excel it is probably a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g.&nbsp;2021-05-12). It will make things consistent and easier.</li>
-<li>Use library(rio) and import - it will ensure that the date format is kept.</li>
+<li>Before importing from Excel it is a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g.&nbsp;2021-05-12). It will make things consistent and easier.</li>
+<li>use here::here() to establish the working directory</li>
 <li><code>library(lubridate)</code> is part of <code>tidyverse</code>.</li>
-<li>Use <code>`tibble`</code>to check if Dates are recognized correctly before filtering</li>
+<li>Use <code>str()</code>to check if Dates are recognized correctly before filtering</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"../assets/Vaccines.csv"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"./assets/vaccines.csv"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
    Date       OneDose TwoDose
-   &lt;IDate&gt;      &lt;int&gt;   &lt;int&gt;
+   &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;
  1 2021-01-11    3400       0
  2 2021-01-12    6200       0
  3 2021-01-22   60000       0
@@ -412,18 +411,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="filtering-rows-based-on-date" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="filtering-rows-based-on-date"><span class="header-section-number">1.1</span> Filtering rows based on Date</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, Date<span class="sc">&gt;=</span><span class="st">"2021-02-02"</span> <span class="sc">&amp;</span> Date <span class="sc">&lt;</span> <span class="st">"2021-03-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df1, Date<span class="sc">&gt;=</span><span class="st">"2021-02-02"</span> <span class="sc">&amp;</span> Date <span class="sc">&lt;</span> <span class="st">"2021-03-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Date OneDose TwoDose
+<pre><code># A tibble: 3 × 3
+  Date       OneDose TwoDose
+  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;
 1 2021-02-02  175000    6000
 2 2021-02-10  250000    6000
 3 2021-02-18  250000  110000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, Date <span class="sc">&gt;</span> <span class="st">"2021-01-31"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df1, Date <span class="sc">&gt;</span> <span class="st">"2021-01-31"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Date OneDose TwoDose
+<pre><code># A tibble: 5 × 3
+  Date       OneDose TwoDose
+  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;
 1 2021-02-02  175000    6000
 2 2021-02-10  250000    6000
 3 2021-02-18  250000  110000
@@ -436,69 +439,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="calculating-age-from-dates" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="calculating-age-from-dates"><span class="header-section-number">2</span> Calculating age from Dates</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#includes lubridate, readr</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eeptools)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Name, dob</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">               HANKS Tom, 1956-07-09</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">               SANDLER Adam, 1966-09-09</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">               SMITH Will, 1968-09-25</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="st">               CUMBERBATCH Benedict, 1976-07-19</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">               FOX Megan, 1986-05-16</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">               STONE Emma, 1988-11-06</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">               RADCLIFFE Daniel, 1989-07-23</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="st">               STEWART Kirsten, 1990-04-09</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="st">               WATSON Emma, 1990-04-15</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="st">               "</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>dob <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>dob)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"name, dob</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">                CUMBERBATCH Benedict, 1976-07-19</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">                FOX Megan, 1986-05-16</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">                HANKS Tom, 1956-07-09</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">                SANDLER Adam, 1966-09-09</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="st">                SMITH Will, 1968-09-25</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">                STONE Emma, 1988-11-06"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">arrange</span>(df2, <span class="sc">-</span><span class="fu">desc</span>(dob))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">&lt;-</span> df3 <span class="sc">%&gt;%</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>(<span class="at">age=</span><span class="fu">age_calc</span>(dob, <span class="at">units=</span><span class="st">"years"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>(<span class="at">mth=</span><span class="fu">month</span>(dob))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>df4<span class="sc">$</span>mth <span class="ot">&lt;-</span> month.abb[df4<span class="sc">$</span>mth]</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>df4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 2
-  Name                 dob       
-  &lt;chr&gt;                &lt;date&gt;    
-1 HANKS Tom            1956-07-09
-2 SANDLER Adam         1966-09-09
-3 SMITH Will           1968-09-25
-4 CUMBERBATCH Benedict 1976-07-19
-5 FOX Megan            1986-05-16
-6 STONE Emma           1988-11-06
-7 RADCLIFFE Daniel     1989-07-23
-8 STEWART Kirsten      1990-04-09
-9 WATSON Emma          1990-04-15</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">arrange</span>(df,<span class="sc">-</span><span class="fu">desc</span>(dob))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 2
-  Name                 dob       
-  &lt;chr&gt;                &lt;date&gt;    
-1 HANKS Tom            1956-07-09
-2 SANDLER Adam         1966-09-09
-3 SMITH Will           1968-09-25
-4 CUMBERBATCH Benedict 1976-07-19
-5 FOX Megan            1986-05-16
-6 STONE Emma           1988-11-06
-7 RADCLIFFE Daniel     1989-07-23
-8 STEWART Kirsten      1990-04-09
-9 WATSON Emma          1990-04-15</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df1<span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">age=</span><span class="fu">age_calc</span>(dob,<span class="at">units=</span><span class="st">"years"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">mth=</span><span class="fu">month</span>(dob))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>mth<span class="ot">&lt;-</span>month.abb[df1<span class="sc">$</span>mth]</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 4
-  Name                 dob          age mth  
+<pre><code># A tibble: 6 × 4
+  name                 dob          age mth  
   &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;
 1 HANKS Tom            1956-07-09  68.3 Jul  
 2 SANDLER Adam         1966-09-09  58.1 Sep  
 3 SMITH Will           1968-09-25  56.1 Sep  
 4 CUMBERBATCH Benedict 1976-07-19  48.2 Jul  
 5 FOX Megan            1986-05-16  38.4 May  
-6 STONE Emma           1988-11-06  35.9 Nov  
-7 RADCLIFFE Daniel     1989-07-23  35.2 Jul  
-8 STEWART Kirsten      1990-04-09  34.5 Apr  
-9 WATSON Emma          1990-04-15  34.5 Apr  </code></pre>
+6 STONE Emma           1988-11-06  35.9 Nov  </code></pre>
 </div>
 </div>
 
