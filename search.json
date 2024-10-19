@@ -1257,7 +1257,7 @@
     "href": "tables/gt.html",
     "title": "gt",
     "section": "",
-    "text": "Library\n\nlibrary(tidyverse)\nlibrary(gt)\n\n\n\nData is a datframe or tibble\n\nislands_tbl &lt;- \n  tibble(\n    name = names(islands),\n    size = islands\n  ) |&gt;\n  arrange(desc(size)) |&gt;\n  slice(1:10)\n\nislands_tbl\n\n# A tibble: 10 × 2\n   name           size\n   &lt;chr&gt;         &lt;dbl&gt;\n 1 Asia          16988\n 2 Africa        11506\n 3 North America  9390\n 4 South America  6795\n 5 Antarctica     5500\n 6 Europe         3745\n 7 Australia      2968\n 8 Greenland       840\n 9 New Guinea      306\n10 Borneo          280\n\n\n\n\nBasic gt table on tibble\n\n# basic gt table\ngt(islands_tbl) |&gt;\n  tab_header(\n    title = md(\"Large Landmasses of the world\"),\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\nLarge Landmasses of the world\n\n\nname\nsize\n\n\n\n\nAsia\n16988\n\n\nAfrica\n11506\n\n\nNorth America\n9390\n\n\nSouth America\n6795\n\n\nAntarctica\n5500\n\n\nEurope\n3745\n\n\nAustralia\n2968\n\n\nGreenland\n840\n\n\nNew Guinea\n306\n\n\nBorneo\n280\n\n\n\n\n\n\n\n\n\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n\n\ngt(df2)\n\n\n\n\n\n\n\n\nPredicted\nActual\nValues\n\n\n\n\nPositive\nDisease\n327\n\n\nPositive\nNoDisease\n50\n\n\nNegative\nDisease\n50\n\n\nNegative\nNoDisease\n192\n\n\n\n\n\n\n\n\n\nggplot(df2, aes(x=Actual, y=Values, fill=Predicted))+\n  geom_col(position=\"dodge\",color=\"gray\")+\n  scale_fill_manual(values=c(\"pink\", \"lightblue\"))",
+    "text": "library(tidyverse)\nlibrary(gt)",
     "crumbs": [
       "Tables",
       "gt"
@@ -1374,5 +1374,126 @@
     "title": "tables",
     "section": "4 xtabs require dataframe or tibble",
     "text": "4 xtabs require dataframe or tibble\n\n# tribble is easier to enter table values by rows\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n# xtabs require a dataframe or tibble, returns table\ntab2 &lt;- xtabs( Values ~ Predicted + Actual, data=df2)\naddmargins(tab2)\n\n          Actual\nPredicted  Disease NoDisease Sum\n  Negative      50       192 242\n  Positive     327        50 377\n  Sum          377       242 619\n\nclass(tab2)\n\n[1] \"xtabs\" \"table\"\n\n# a nicer table (maybe)\nftable(tab2)\n\n          Actual Disease NoDisease\nPredicted                         \nNegative              50       192\nPositive             327        50"
+  },
+  {
+    "objectID": "datatypes/table.html",
+    "href": "datatypes/table.html",
+    "title": "tables-frequency",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#data",
+    "href": "datatypes/table.html#data",
+    "title": "tables-frequency",
+    "section": "1 Data",
+    "text": "1 Data\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"M\",\"F\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#two-way-contingency-table",
+    "href": "datatypes/table.html#two-way-contingency-table",
+    "title": "tables-frequency",
+    "section": "2 two-way Contingency table",
+    "text": "2 two-way Contingency table\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  0  1 0  0 0 0\n  F  1 0  0  0 2  1  0 0  0 0 1",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#frequency-table-also-called-a-contingency-table",
+    "href": "datatypes/table.html#frequency-table-also-called-a-contingency-table",
+    "title": "tables-frequency",
+    "section": "4 Frequency table (also called a contingency table)",
+    "text": "4 Frequency table (also called a contingency table)\n\n# use table function to count frequency in lgrades\ntable1 &lt;- table(tb$lgrades) \ntable1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  3  1  1  0  0  0  1 \n\nclass(table1)\n\n[1] \"table\"\n\n\n\n# redo table back into a dataframe\ndf2 &lt;- data.frame(table1)\nnames(df2) &lt;- c(\"grades\",\"freq\")\ndf2\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    3\n6      B-    1\n7      C+    1\n8       C    0\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#one-way-contigency",
+    "href": "datatypes/table.html#one-way-contigency",
+    "title": "tables-frequency",
+    "section": "2 one-way contigency",
+    "text": "2 one-way contigency\n\noneWay &lt;- table(tb$lgrades)\noneWay\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(oneWay)\n\n[1] \"table\"",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#two-way-contigency",
+    "href": "datatypes/table.html#two-way-contigency",
+    "title": "tables-frequency",
+    "section": "3 two-way contigency",
+    "text": "3 two-way contigency\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#grades-freq-in-dataframe",
+    "href": "datatypes/table.html#grades-freq-in-dataframe",
+    "title": "tables-frequency",
+    "section": "4 grades-freq in dataframe",
+    "text": "4 grades-freq in dataframe\n\n# redo table back into a dataframe\ndf &lt;- data.frame(oneWay)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#column-plot",
+    "href": "datatypes/table.html#column-plot",
+    "title": "tables-frequency",
+    "section": "5 column plot",
+    "text": "5 column plot\n\nggplot(df, aes(x=grades, y=freq))+\n  geom_col(fill=\"lightblue\", color=\"black\")",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#one-way-contingency",
+    "href": "datatypes/table.html#one-way-contingency",
+    "title": "tables-frequency",
+    "section": "2 one-way contingency",
+    "text": "2 one-way contingency\n\noneWay &lt;- table(tb$lgrades)\noneWay\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(oneWay)\n\n[1] \"table\"",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "datatypes/table.html#two-way-contingency",
+    "href": "datatypes/table.html#two-way-contingency",
+    "title": "tables-frequency",
+    "section": "3 two-way contingency",
+    "text": "3 two-way contingency\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1",
+    "crumbs": [
+      "Datatypes",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/gt.html#another-table",
+    "href": "tables/gt.html#another-table",
+    "title": "gt",
+    "section": "Another table",
+    "text": "Another table\n\ndf &lt;- read_csv(\"Predicted, Actual, Values\n               Positive, Disease, 327\n               Positive, NoDisease, 50\n               Negative, Disease, 50\n               Negative, NoDisease, 192\n               \")\ndf$Predicted &lt;- as.factor(df$Predicted)\ndf$Actual &lt;- as.factor(df$Actual)\ndf\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;fct&gt;     &lt;fct&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\ngt(df)\n\n\n\n\n\n\n\n\nPredicted\nActual\nValues\n\n\n\n\nPositive\nDisease\n327\n\n\nPositive\nNoDisease\n50\n\n\nNegative\nDisease\n50\n\n\nNegative\nNoDisease\n192\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x=Actual, y=Values, fill=Predicted))+\n  geom_col(position=\"dodge\",color=\"gray\")+\n  scale_fill_manual(values=c(\"pink\", \"lightblue\"))",
+    "crumbs": [
+      "Tables",
+      "gt"
+    ]
   }
 ]
