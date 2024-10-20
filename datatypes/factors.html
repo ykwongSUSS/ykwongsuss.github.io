@@ -205,8 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatypes/tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">tables</span></a>
+  <a href="../datatypes/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
   </div>
 </li>
       </ul>
@@ -289,13 +289,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Examples</span></a>
+            <a href="../tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/contingency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">contigency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/frequency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/kikoWeights.html" class="sidebar-item-text sidebar-link">
@@ -314,11 +343,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../datasets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataSets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../datasets/iris/iris.html" class="sidebar-item-text sidebar-link">
@@ -349,12 +378,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#defining-factors" id="toc-defining-factors" class="nav-link active" data-scroll-target="#defining-factors"><span class="header-section-number">1</span> Defining factors</a></li>
-  <li><a href="#ordering-of-factors" id="toc-ordering-of-factors" class="nav-link" data-scroll-target="#ordering-of-factors"><span class="header-section-number">2</span> Ordering of <code>factors</code></a>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a></li>
+  <li><a href="#defining-factors" id="toc-defining-factors" class="nav-link" data-scroll-target="#defining-factors"><span class="header-section-number">2</span> Defining factors</a></li>
+  <li><a href="#ordering-of-factors" id="toc-ordering-of-factors" class="nav-link" data-scroll-target="#ordering-of-factors"><span class="header-section-number">3</span> Ordering of <code>factors</code></a>
   <ul class="collapse">
-  <li><a href="#using-fct_inorder" id="toc-using-fct_inorder" class="nav-link" data-scroll-target="#using-fct_inorder"><span class="header-section-number">2.1</span> Using fct_inorder()</a></li>
+  <li><a href="#using-levels" id="toc-using-levels" class="nav-link" data-scroll-target="#using-levels"><span class="header-section-number">3.1</span> Using levels</a></li>
   </ul></li>
-  <li><a href="#renaming-factors" id="toc-renaming-factors" class="nav-link" data-scroll-target="#renaming-factors"><span class="header-section-number">3</span> Renaming Factors</a></li>
+  <li><a href="#ordering-factors-for-ggplots" id="toc-ordering-factors-for-ggplots" class="nav-link" data-scroll-target="#ordering-factors-for-ggplots"><span class="header-section-number">4</span> Ordering factors for ggplots</a></li>
+  <li><a href="#renaming-factors" id="toc-renaming-factors" class="nav-link" data-scroll-target="#renaming-factors"><span class="header-section-number">5</span> Renaming Factors</a></li>
   </ul>
 </nav>
     </div>
@@ -380,149 +411,161 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="defining-factors" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="defining-factors"><span class="header-section-number">1</span> Defining factors</h2>
+<section id="libraries" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">1</span> Libraries</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usual to convert strings to factors</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ch <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"plus"</span>,<span class="st">"minus"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="defining-factors" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="defining-factors"><span class="header-section-number">2</span> Defining factors</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usual to convert strings to factors</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ch <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"plus"</span>,<span class="st">"minus"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "plus"  "minus"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note: levels are alphabetical</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fch <span class="ot">&lt;-</span> <span class="fu">factor</span>(ch)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note: levels are alphabetically placed</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fch <span class="ot">&lt;-</span> <span class="fu">factor</span>(ch)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] plus  minus
 Levels: minus plus</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or using `as.factor`</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(ch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or using `as.factor` from BaseR</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(ch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] plus  minus
 Levels: minus plus</code></pre>
 </div>
 </div>
 </section>
-<section id="ordering-of-factors" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="ordering-of-factors"><span class="header-section-number">2</span> Ordering of <code>factors</code></h2>
-<section id="using-fct_inorder" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="using-fct_inorder"><span class="header-section-number">2.1</span> Using fct_inorder()</h3>
+<section id="ordering-of-factors" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="ordering-of-factors"><span class="header-section-number">3</span> Ordering of <code>factors</code></h2>
+<section id="using-levels" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="using-levels"><span class="header-section-number">3.1</span> Using levels</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># factor</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sch0 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"SBIZ"</span>,<span class="st">"NSHD"</span>,<span class="st">"SHBS"</span>,<span class="st">"SST"</span>,<span class="st">"SLAW"</span>))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sch0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># factor levels normally arranged alphabetically</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>bloodtypes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"O"</span>,<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"AB"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>bt <span class="ot">&lt;-</span> <span class="fu">factor</span>(bloodtypes)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "NSHD" "SBIZ" "SHBS" "SLAW" "SST" </code></pre>
+<pre><code>[1] "A"  "AB" "B"  "O" </code></pre>
 </div>
 </div>
 <ul>
 <li>the <code>Levels</code> default to an alphabetical sequence, but</li>
-<li>now I want to list factors Levels by the order in which they first appear</li>
-<li>sch1 Levels will now follow the sequence of sch (starting with SBIZ..)</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. fct_inorder (easiest but need tidyverse)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#include forcats</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sch1 <span class="ot">&lt;-</span> <span class="fu">fct_inorder</span>(sch0)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sch1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] SBIZ NSHD SHBS SST  SLAW
-Levels: SBIZ NSHD SHBS SST SLAW</code></pre>
-</div>
-</div>
+<li>if I want to list factors Levels by the order in which they first appear
 <ul>
-<li>or I can re-factor sch0 again by making the Levels unique to sch0</li>
+<li>you can define levels explicitly with factor() ’</li>
+<li>you can use as_factor from tidyverse which will retain the order</li>
+</ul></li>
+<li>hence, good idea to use <code>as_factor</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. levels=unique()</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sch2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(sch0, <span class="at">levels=</span><span class="fu">unique</span>(sch0))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sch2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify levels=...</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>bt1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(bloodtypes,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"O"</span>,<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"AB"</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bt1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] SBIZ NSHD SHBS SST  SLAW
-Levels: SBIZ NSHD SHBS SST SLAW</code></pre>
+<pre><code>[1] "O"  "A"  "B"  "AB"</code></pre>
 </div>
-</div>
-<ul>
-<li>thirdly, you can factor and specify the order of Levels</li>
-<li>(which is probably the most direct way)</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. specify levels=...</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sch3 <span class="ot">&lt;-</span> <span class="fu">factor</span>(sch0,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"SBIZ"</span>,<span class="st">"NSHD"</span>,<span class="st">"SHBS"</span>,<span class="st">"SST"</span>,<span class="st">"SLAW"</span>))</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sch3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bt2 <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(bloodtypes)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bt2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] SBIZ NSHD SHBS SST  SLAW
-Levels: SBIZ NSHD SHBS SST SLAW</code></pre>
+<pre><code>[1] "O"  "A"  "B"  "AB"</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="renaming-factors" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="renaming-factors"><span class="header-section-number">3</span> Renaming Factors</h2>
+<section id="ordering-factors-for-ggplots" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="ordering-factors-for-ggplots"><span class="header-section-number">4</span> Ordering factors for ggplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tb<span class="ot">&lt;-</span><span class="fu">tribble</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span>Dept, <span class="sc">~</span>Views,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">"Learning Systems and Applications"</span>, <span class="dv">2349</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">"Student Support"</span>, <span class="dv">683</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">"Student Support"</span>, <span class="dv">697</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">"Student Support"</span>, <span class="dv">534</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">"Teaching and Learning Center"</span>,<span class="dv">345</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">"School of Humanities and Behavioral Sciences"</span>,<span class="dv">324</span>,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="st">"Digital Library Services"</span>,<span class="dv">223</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># problems when you want to plot the categorical variable </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in a certain (original) order</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"cancer, age, sex</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">               Colorectal, 66, M</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">               Lung, 29, M</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">               Lung, 21, F</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">               Nasal, 17, M</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">               Colorectal, 55, F</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">               Nasal, 31,F</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">               Breast, 37, F</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st">               Liver, 55, M</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">               Liver, 63, F</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">               "</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> tb</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>tb1<span class="sc">$</span>cancer <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb1<span class="sc">$</span>cancer)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(tb1<span class="sc">$</span>cancer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 2
-  Dept                                         Views
-  &lt;chr&gt;                                        &lt;dbl&gt;
-1 Learning Systems and Applications             2349
-2 Student Support                                683
-3 Student Support                                697
-4 Student Support                                534
-5 Teaching and Learning Center                   345
-6 School of Humanities and Behavioral Sciences   324
-7 Digital Library Services                       223</code></pre>
+<pre><code>[1] "Breast"     "Colorectal" "Liver"      "Lung"       "Nasal"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tb1, <span class="fu">aes</span>(<span class="at">x=</span>cancer))<span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">color=</span><span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="factors_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>or I can order the factor cancer in its original position</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tb2 <span class="ot">&lt;-</span> tb</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>tb2<span class="sc">$</span>cancer <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(tb<span class="sc">$</span>cancer)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(tb2<span class="sc">$</span>cancer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Colorectal" "Lung"       "Nasal"      "Breast"     "Liver"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tb2, <span class="fu">aes</span>(<span class="at">x=</span>cancer))<span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">color=</span><span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="factors_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="renaming-factors" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="renaming-factors"><span class="header-section-number">5</span> Renaming Factors</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tb3<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="st">Dept, Views</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">National Cancer Center, 683</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">National Heart Center Singapore, 697</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">National Eye Center, 534</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>tb3<span class="sc">$</span>Dept <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(tb3<span class="sc">$</span>Dept)   <span class="co"># retains order</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(tb3<span class="sc">$</span>Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "National Cancer Center"          "National Heart Center Singapore"
+[3] "National Eye Center"            </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>Dept <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(tb<span class="sc">$</span>Dept) <span class="co"># change chr to factor</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(tb<span class="sc">$</span>Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tb3<span class="sc">$</span>Dept <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(tb3<span class="sc">$</span>Dept,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">NCC=</span><span class="st">"National Cancer Center"</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">NHCS =</span> <span class="st">"National Heart Center Singapore"</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">NEC =</span> <span class="st">"National Eye Center"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(tb3<span class="sc">$</span>Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Digital Library Services"                    
-[2] "Learning Systems and Applications"           
-[3] "School of Humanities and Behavioral Sciences"
-[4] "Student Support"                             
-[5] "Teaching and Learning Center"                </code></pre>
+<pre><code>[1] "NCC"  "NHCS" "NEC" </code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>Dept <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(tb<span class="sc">$</span>Dept,</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">DLS=</span><span class="st">"Digital Library Services"</span>,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">LSA =</span> <span class="st">"Learning Systems and Applications"</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">SHBS =</span> <span class="st">"School of Humanities and Behavioral Sciences"</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">TLC =</span> <span class="st">"Teaching and Learning Center"</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">SS =</span> <span class="st">"Student Support"</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tb3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 2
+<pre><code># A tibble: 3 × 2
   Dept  Views
   &lt;fct&gt; &lt;dbl&gt;
-1 LSA    2349
-2 SS      683
-3 SS      697
-4 SS      534
-5 TLC     345
-6 SHBS    324
-7 DLS     223</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>Dept</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] LSA  SS   SS   SS   TLC  SHBS DLS 
-Levels: DLS LSA SHBS SS TLC</code></pre>
+1 NCC     683
+2 NHCS    697
+3 NEC     534</code></pre>
 </div>
 </div>
 

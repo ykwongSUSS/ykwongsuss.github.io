@@ -205,8 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatypes/tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">tables</span></a>
+  <a href="../datatypes/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
   </div>
 </li>
       </ul>
@@ -289,13 +289,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Examples</span></a>
+            <a href="../tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/contingency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">contigency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/frequency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/kikoWeights.html" class="sidebar-item-text sidebar-link">
@@ -314,11 +343,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../datasets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataSets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../datasets/iris/iris.html" class="sidebar-item-text sidebar-link">
@@ -352,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tidyverse-stringr" id="toc-tidyverse-stringr" class="nav-link active" data-scroll-target="#tidyverse-stringr"><span class="header-section-number">1</span> tidyverse:: stringr</a>
   <ul class="collapse">
   <li><a href="#merge-strings---concat" id="toc-merge-strings---concat" class="nav-link" data-scroll-target="#merge-strings---concat"><span class="header-section-number">1.1</span> merge strings - concat</a></li>
-  <li><a href="#string-functions" id="toc-string-functions" class="nav-link" data-scroll-target="#string-functions"><span class="header-section-number">1.2</span> string functions</a></li>
+  <li><a href="#stringr-functions" id="toc-stringr-functions" class="nav-link" data-scroll-target="#stringr-functions"><span class="header-section-number">1.2</span> stringr functions</a></li>
   <li><a href="#strsplit-returns-a-list" id="toc-strsplit-returns-a-list" class="nav-link" data-scroll-target="#strsplit-returns-a-list"><span class="header-section-number">1.3</span> strsplit (returns a list)</a></li>
   <li><a href="#split-into-chars" id="toc-split-into-chars" class="nav-link" data-scroll-target="#split-into-chars"><span class="header-section-number">1.4</span> split into chars</a></li>
   <li><a href="#split-into-words" id="toc-split-into-words" class="nav-link" data-scroll-target="#split-into-words"><span class="header-section-number">1.5</span> split into words</a></li>
@@ -408,8 +437,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"I really"</span>,<span class="st">" believe "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="string-functions" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="string-functions"><span class="header-section-number">1.2</span> string functions</h3>
+<section id="stringr-functions" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="stringr-functions"><span class="header-section-number">1.2</span> stringr functions</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lowercase</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_lower</span>(s2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
