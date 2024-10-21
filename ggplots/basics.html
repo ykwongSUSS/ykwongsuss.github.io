@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WebR - textEntry</title>
+<title>WebR - basicPlots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataframes/importExport.html" rel="next">
-<link href="../dataframes.html" rel="prev">
+<link href="../ggplots/regression.html" rel="next">
+<link href="../ggplots.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">textEntry</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ggplots.html">ggPlots</a></li><li class="breadcrumb-item"><a href="../ggplots/basics.html">basics</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframes/textEntry.html" class="sidebar-item-text sidebar-link active">
+  <a href="../dataframes/textEntry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">textEntry</span></a>
   </div>
 </li>
@@ -269,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ggplots/basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../ggplots/basics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">basics</span></a>
   </div>
 </li>
@@ -390,23 +390,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#baserdata.frame" id="toc-baserdata.frame" class="nav-link active" data-scroll-target="#baserdata.frame"><span class="header-section-number">1</span> <code>BaseR::data.frame()</code></a></li>
-  <li><a href="#baserread.table" id="toc-baserread.table" class="nav-link" data-scroll-target="#baserread.table"><span class="header-section-number">2</span> <code>BaseR::read.table</code></a></li>
-  <li><a href="#tidyverseread_csv" id="toc-tidyverseread_csv" class="nav-link" data-scroll-target="#tidyverseread_csv"><span class="header-section-number">3</span> <code>tidyverse::read_csv</code></a></li>
-  <li><a href="#tidyversetibble" id="toc-tidyversetibble" class="nav-link" data-scroll-target="#tidyversetibble"><span class="header-section-number">4</span> <code>tidyverse::tibble()</code></a></li>
-  <li><a href="#tribble---transposed-tibble" id="toc-tribble---transposed-tibble" class="nav-link" data-scroll-target="#tribble---transposed-tibble"><span class="header-section-number">5</span> <code>tribble()</code> - transposed tibble</a>
-  <ul class="collapse">
-  <li><a href="#tribble-with-dates" id="toc-tribble-with-dates" class="nav-link" data-scroll-target="#tribble-with-dates"><span class="header-section-number">5.1</span> <code>tribble()</code> with dates</a></li>
-  </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">0.1</span> Data</a></li>
+  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot"><span class="header-section-number">1</span> Scatterplot</a></li>
+  <li><a href="#scatterlines" id="toc-scatterlines" class="nav-link" data-scroll-target="#scatterlines"><span class="header-section-number">2</span> ScatterLines</a></li>
+  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot"><span class="header-section-number">3</span> BarPlot</a></li>
+  <li><a href="#columnplot" id="toc-columnplot" class="nav-link" data-scroll-target="#columnplot"><span class="header-section-number">4</span> ColumnPlot</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram"><span class="header-section-number">5</span> Histogram</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">6</span> BoxPlot</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">textEntry</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ggplots.html">ggPlots</a></li><li class="breadcrumb-item"><a href="../ggplots/basics.html">basics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">textEntry</h1>
+<h1 class="title">basicPlots</h1>
 </div>
 
 
@@ -423,148 +422,211 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="baserdata.frame" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="baserdata.frame"><span class="header-section-number">1</span> <code>BaseR::data.frame()</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># strings indicated in quotes</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"SBIZ"</span>,<span class="st">"NSHD"</span>,<span class="st">"SHBS"</span>,<span class="st">"SST"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">14</span>,<span class="dv">13</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sch=</span>s,<span class="at">pgm=</span>p)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   sch pgm
-1 SBIZ  23
-2 NSHD  25
-3 SHBS  14
-4  SST  13</code></pre>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+plots
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>scatterplot: geom_point()</li>
+<li>scatterlines : geom_line()</li>
+<li>bar count: geom_bar()</li>
+<li>column: geom_col()</li>
+<li>frequency: geom_histogram()</li>
+<li>boxplot: geom_boxplot()</li>
+</ol>
+</div>
+</div>
+<section id="data" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="data"><span class="header-section-number">0.1</span> Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>girth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">45</span>,<span class="dv">53</span>,<span class="dv">55</span>,<span class="dv">63</span>,<span class="dv">65</span>,<span class="dv">67</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">46.2</span>,<span class="fl">53.3</span>,<span class="fl">55.2</span>,<span class="fl">58.4</span>,<span class="fl">60.4</span>,<span class="fl">70.0</span>,<span class="fl">70.4</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">18</span>,<span class="dv">28</span>,<span class="dv">40</span>,<span class="dv">55</span>,<span class="dv">65</span>,<span class="dv">76</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'M'</span>,<span class="st">'F'</span>,<span class="st">'M'</span>,<span class="st">'F'</span>,<span class="st">'M'</span>,<span class="st">'M'</span>,<span class="st">'F'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(girth,height,age,sex)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   4 obs. of  2 variables:
- $ sch: chr  "SBIZ" "NSHD" "SHBS" "SST"
- $ pgm: num  23 25 14 13</code></pre>
+<pre><code>  girth height age sex
+1    40   46.2  15   M
+2    45   53.3  18   F
+3    53   55.2  28   M
+4    55   58.4  40   F
+5    63   60.4  55   M
+6    65   70.0  65   M
+7    67   70.4  76   F</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="scatterplot" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="scatterplot"><span class="header-section-number">1</span> Scatterplot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Scatter</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>girth, <span class="at">y=</span>height, <span class="at">color=</span>sex))<span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Scatter Plot"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Date: 28 Jul 2024"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Girth(cm)"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Height(cm)"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basics_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="baserread.table" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="baserread.table"><span class="header-section-number">2</span> <code>BaseR::read.table</code></h2>
+<section id="scatterlines" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="scatterlines"><span class="header-section-number">2</span> ScatterLines</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note that parameters include `header=` and `text=`</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and so don't need quotes. </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">text =</span> <span class="st">"</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">sch pgms</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">SBIZ 23</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">NSHD 25</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">SHBS 14</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">SST 13</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   sch pgms
-1 SBIZ   23
-2 NSHD   25
-3 SHBS   14
-4  SST   13</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. ScatterLines</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">100</span>)<span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">80</span>)<span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># girth</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x=</span>age,<span class="at">y=</span>girth,<span class="at">shape=</span><span class="dv">21</span>, <span class="at">size=</span><span class="dv">4</span>,<span class="at">fill=</span><span class="st">"orange"</span>,<span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>girth,<span class="at">color=</span><span class="st">"girth"</span>),<span class="at">show.legend=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># height</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x=</span>age,<span class="at">y=</span>height,<span class="at">shape=</span><span class="dv">21</span>, <span class="at">size=</span><span class="dv">4</span>,<span class="at">fill=</span><span class="st">"yellow"</span>)<span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>height,<span class="at">color=</span><span class="st">"height"</span>),<span class="at">show.legend=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># color</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>))<span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"ScatterLines"</span>)<span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"girth-height"</span>)<span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basics_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<hr>
+</section>
+<section id="barplot" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="barplot"><span class="header-section-number">3</span> BarPlot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>direction <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'N'</span>,<span class="st">'S'</span>,<span class="st">'E'</span>,<span class="st">'W'</span>,<span class="st">'W'</span>,<span class="st">'E'</span>,<span class="st">'W'</span>,<span class="st">'E'</span>,<span class="st">'E'</span>,<span class="st">'E'</span>,<span class="st">'E'</span>,<span class="st">'S'</span>,<span class="st">'S'</span>,<span class="st">'N'</span>,<span class="st">'N'</span>,<span class="st">'W'</span>,<span class="st">'E'</span>,<span class="st">'E'</span>,<span class="st">'N'</span>,<span class="st">'N'</span>,<span class="st">'N'</span>,<span class="st">'S'</span>,<span class="st">'E'</span>,<span class="st">'W'</span>,<span class="st">'W'</span>,<span class="st">'E'</span>,<span class="st">'W'</span>,<span class="st">'E'</span>,<span class="st">'E'</span>,<span class="st">'E'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>speed <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">5</span>, <span class="fl">0.2</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dfWind <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(direction,speed)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dfWind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   4 obs. of  2 variables:
- $ sch : chr  "SBIZ" "NSHD" "SHBS" "SST"
- $ pgms: int  23 25 14 13</code></pre>
+<pre><code>'data.frame':   30 obs. of  2 variables:
+ $ direction: chr  "N" "S" "E" "W" ...
+ $ speed    : num  5.02 4.7 4.94 4.9 5.36 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dfWind,<span class="fu">aes</span>(<span class="at">x=</span>direction, <span class="at">fill=</span>direction))<span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color=</span><span class="st">"gray"</span>)<span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"BarPlot"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"auto counting"</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basics_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="tidyverseread_csv" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="tidyverseread_csv"><span class="header-section-number">3</span> <code>tidyverse::read_csv</code></h2>
+<section id="columnplot" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="columnplot"><span class="header-section-number">4</span> ColumnPlot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"sch, pgms</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">         SBIZ, 23</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">         NSHD, 25</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">         SHBS, 14</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">         SST,  13</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">         "</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>rc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>school <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"NSHD"</span>,<span class="st">"SHBS"</span>,<span class="st">"SBIZ"</span>,<span class="st">"LAW"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>numSG <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">68</span>,<span class="dv">140</span>,<span class="dv">90</span>,<span class="dv">55</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(school,numSG)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-  sch    pgms
-  &lt;chr&gt; &lt;dbl&gt;
-1 SBIZ     23
-2 NSHD     25
-3 SHBS     14
-4 SST      13</code></pre>
+<pre><code>  school numSG
+1   NSHD    68
+2   SHBS   140
+3   SBIZ    90
+4    LAW    55</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(<span class="at">x=</span>school, <span class="at">y=</span>numSG, <span class="at">fill=</span>school))<span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"ColumnPlot"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">subtitle=</span><span class="st">"yValues"</span>)<span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color=</span><span class="st">"gray"</span>)<span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"lightgreen"</span>,<span class="st">"yellow"</span>,<span class="st">"lightblue"</span>,<span class="st">"purple"</span>))<span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>numSG),<span class="at">nudge_y=</span><span class="dv">10</span>)<span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">180</span>)<span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basics_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="tidyversetibble" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="tidyversetibble"><span class="header-section-number">4</span> <code>tidyverse::tibble()</code></h2>
+<section id="histogram" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="histogram"><span class="header-section-number">5</span> Histogram</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quotes required</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">sch =</span> <span class="fu">c</span>(<span class="st">"SBIZ"</span>,<span class="st">"NSHD"</span>,<span class="st">"SHBS"</span>,<span class="st">"SST"</span>),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">pgms =</span> <span class="fu">c</span>(<span class="dv">23</span>,<span class="dv">25</span>,<span class="dv">14</span>,<span class="dv">13</span>)  </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>tb1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(dfWind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-  sch    pgms
-  &lt;chr&gt; &lt;dbl&gt;
-1 SBIZ     23
-2 NSHD     25
-3 SHBS     14
-4 SST      13</code></pre>
+<pre><code>'data.frame':   30 obs. of  2 variables:
+ $ direction: chr  "N" "S" "E" "W" ...
+ $ speed    : num  5.02 4.7 4.94 4.9 5.36 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(dfWind, <span class="fu">aes</span>(<span class="at">x=</span>speed))<span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">fill=</span><span class="st">"lightgray"</span>,<span class="at">color=</span><span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">title=</span><span class="st">"Histogram"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">subtitle =</span> <span class="st">"bins=8"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">"Wind Speed"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab =</span> <span class="st">"Frequency"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basics_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="tribble---transposed-tibble" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="tribble---transposed-tibble"><span class="header-section-number">5</span> <code>tribble()</code> - transposed tibble</h2>
+<section id="boxplot" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">6</span> BoxPlot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tb2<span class="ot">&lt;-</span><span class="fu">tribble</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>sch, <span class="sc">~</span>pgms,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SBIZ"</span>, <span class="dv">23</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"NSHD"</span>, <span class="dv">25</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SHBS"</span>, <span class="dv">14</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SST"</span>, <span class="dv">13</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>tb2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(faithful)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(faithful)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-  sch    pgms
-  &lt;chr&gt; &lt;dbl&gt;
-1 SBIZ     23
-2 NSHD     25
-3 SHBS     14
-4 SST      13</code></pre>
+<pre><code>   eruptions        waiting    
+ Min.   :1.600   Min.   :43.0  
+ 1st Qu.:2.163   1st Qu.:58.0  
+ Median :4.000   Median :76.0  
+ Mean   :3.488   Mean   :70.9  
+ 3rd Qu.:4.454   3rd Qu.:82.0  
+ Max.   :5.100   Max.   :96.0  </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(<span class="at">y=</span>waiting))<span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>)<span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"BoxPlot for waiting times (mins)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="basics_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<section id="tribble-with-dates" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="tribble-with-dates"><span class="header-section-number">5.1</span> <code>tribble()</code> with dates</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tb3 <span class="ot">&lt;-</span> <span class="fu">tribble</span> (</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>date, <span class="sc">~</span>weight,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2020-02-22"</span>, <span class="dv">13</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2021-03-02"</span>, <span class="dv">15</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2022-04-11"</span>, <span class="dv">18</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2023-03-10"</span>, <span class="dv">23</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>tb3<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(tb3<span class="sc">$</span>date)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>tb3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-  date       weight
-  &lt;date&gt;      &lt;dbl&gt;
-1 2020-02-22     13
-2 2021-03-02     15
-3 2022-04-11     18
-4 2023-03-10     23</code></pre>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -979,13 +1041,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../dataframes.html" class="pagination-link" aria-label="DataFrames">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">DataFrames</span>
+      <a href="../ggplots.html" class="pagination-link" aria-label="ggPlots">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ggPlots</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../dataframes/importExport.html" class="pagination-link" aria-label="importExport.">
-        <span class="nav-page-text">importExport.</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ggplots/regression.html" class="pagination-link" aria-label="regression">
+        <span class="nav-page-text">regression</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

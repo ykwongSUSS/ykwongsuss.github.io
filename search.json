@@ -1043,16 +1043,20 @@
   {
     "objectID": "datasets/baseRData/baseRData.html",
     "href": "datasets/baseRData/baseRData.html",
-    "title": "baseRData",
+    "title": "baseR Datasets",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(gt)\n\nbaseR does come with a set of data preloaded in library(datasets). The list of datasets can be found using data() command.\nThe common baseR datasets used are:\n\n\n\nairquality\ncars\nfaithful\n\n\niris\nmtcars\nTitanic\n\n\nwomen\n\n\n\n\n\n\ndata()"
+    "text": "data() # will popup all datasets",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
+    ]
   },
   {
     "objectID": "datasets/baseRData/baseRData.html#libraries",
     "href": "datasets/baseRData/baseRData.html#libraries",
     "title": "baseRData",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(gt)\n\nbaseR does come with a set of data preloaded in library(datasets). The list of datasets can be found using data() command.\nThe common baseR datasets used are:\n\n\n\nairquality\ncars\nfaithful\n\n\niris\nmtcars\nTitanic\n\n\nwomen\n\n\n\n\n\n\ndata()"
+    "text": "head(cars)\n\n  speed dist\n1     4    2\n2     4   10\n3     7    4\n4     7   22\n5     8   16\n6     9   10\n\nhead(faithful)\n\n  eruptions waiting\n1     3.600      79\n2     1.800      54\n3     3.333      74\n4     2.283      62\n5     4.533      85\n6     2.883      55\n\nhead(trees)\n\n  Girth Height Volume\n1   8.3     70   10.3\n2   8.6     65   10.3\n3   8.8     63   10.2\n4  10.5     72   16.4\n5  10.7     81   18.8\n6  10.8     83   19.7\n\nhead(airquality)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n\n\n\ndata()"
   },
   {
     "objectID": "examples.html",
@@ -1721,6 +1725,167 @@
     "crumbs": [
       "ggPlots",
       "patchwork"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html",
+    "href": "ggplots/basics.html",
+    "title": "basicPlots",
+    "section": "",
+    "text": "plots\n\n\n\n\nscatterplot: geom_point()\nscatterlines : geom_line()\nbar count: geom_bar()\ncolumn: geom_col()\nfrequency: geom_histogram()\nboxplot: geom_boxplot()",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#data",
+    "href": "ggplots/basics.html#data",
+    "title": "ggplot-Basics",
+    "section": "1 Data",
+    "text": "1 Data\n\ngirth &lt;- c(40,45,53,55,63,65,67)\nheight &lt;- c(56.2,33.3,61.2,38.4,47.4,30.0,40.4)\nage &lt;- c(15,18,28,40,55,65,76)\nsex &lt;- c('M','F','M','F','M','M','F')\ndf &lt;- data.frame(girth,height,age,sex)\ndf\n\n  girth height age sex\n1    40   56.2  15   M\n2    45   33.3  18   F\n3    53   61.2  28   M\n4    55   38.4  40   F\n5    63   47.4  55   M\n6    65   30.0  65   M\n7    67   40.4  76   F",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#scatterplot",
+    "href": "ggplots/basics.html#scatterplot",
+    "title": "basicPlots",
+    "section": "1 Scatterplot",
+    "text": "1 Scatterplot\n\n# 1. Scatter\nlibrary(tidyverse)\nggplot(df, aes(x=girth, y=height, color=sex))+\n  geom_point(size=2)+\n  labs(\n    title=\"Scatter Plot\",\n    subtitle=\"Date: 28 Jul 2024\",\n    x = \"Girth(cm)\",\n    y = \"Height(cm)\"\n  )",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#scatterlines",
+    "href": "ggplots/basics.html#scatterlines",
+    "title": "basicPlots",
+    "section": "2 ScatterLines",
+    "text": "2 ScatterLines\n\n# 2. ScatterLines\nggplot(df)+\n  xlim(0,100)+\n  ylim(0,80)+\n  # girth\n  geom_point(x=age,y=girth,shape=21, size=4,fill=\"orange\",alpha=0.4)+\n  geom_line(aes(x=age,y=girth,color=\"girth\"),show.legend=FALSE)+\n  # height\n  geom_point(x=age,y=height,shape=21, size=4,fill=\"yellow\")+\n  geom_line(aes(x=age,y=height,color=\"height\"),show.legend=FALSE)+\n  # color\n  scale_color_manual(values=c(\"red\",\"blue\"))+\n  ggtitle(\"ScatterLines\")+\n  ylab(\"girth-height\")+\n  theme_bw()",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#barplot",
+    "href": "ggplots/basics.html#barplot",
+    "title": "basicPlots",
+    "section": "3 BarPlot",
+    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.02 4.7 4.94 4.9 5.36 ...\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"gray\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#columnplot",
+    "href": "ggplots/basics.html#columnplot",
+    "title": "basicPlots",
+    "section": "4 ColumnPlot",
+    "text": "4 ColumnPlot\n\nschool &lt;- c(\"NSHD\",\"SHBS\",\"SBIZ\",\"LAW\")\nnumSG &lt;- c(68,140,90,55)\ndf2 &lt;- data.frame(school,numSG)\ndf2\n\n  school numSG\n1   NSHD    68\n2   SHBS   140\n3   SBIZ    90\n4    LAW    55\n\nggplot(df2, aes(x=school, y=numSG, fill=school))+\n  labs(\n    title=\"ColumnPlot\",\n   subtitle=\"yValues\")+\n  geom_col(color=\"gray\")+\n  scale_fill_manual(values=c(\"lightgreen\",\"yellow\",\"lightblue\",\"purple\"))+\n  geom_text(aes(label=numSG),nudge_y=10)+\n  ylim(0,180)+\n  theme_bw()",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#histogram",
+    "href": "ggplots/basics.html#histogram",
+    "title": "basicPlots",
+    "section": "5 Histogram",
+    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.02 4.7 4.94 4.9 5.36 ...\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#boxplot",
+    "href": "ggplots/basics.html#boxplot",
+    "title": "basicPlots",
+    "section": "6 BoxPlot",
+    "text": "6 BoxPlot\n\ndata(faithful)\nsummary(faithful)\n\n   eruptions        waiting    \n Min.   :1.600   Min.   :43.0  \n 1st Qu.:2.163   1st Qu.:58.0  \n Median :4.000   Median :76.0  \n Mean   :3.488   Mean   :70.9  \n 3rd Qu.:4.454   3rd Qu.:82.0  \n Max.   :5.100   Max.   :96.0  \n\nggplot(faithful, aes(y=waiting))+\n  geom_boxplot(fill=\"lightblue\")+\n  ggtitle(\"BoxPlot for waiting times (mins)\")",
+    "crumbs": [
+      "ggPlots",
+      "basics"
+    ]
+  },
+  {
+    "objectID": "datasets/mtcars/mtcars.html",
+    "href": "datasets/mtcars/mtcars.html",
+    "title": "mtcars",
+    "section": "",
+    "text": "Libraries\n\n\nData\n\nhead(cars)\n\n  speed dist\n1     4    2\n2     4   10\n3     7    4\n4     7   22\n5     8   16\n6     9   10\n\nhead(faithful)\n\n  eruptions waiting\n1     3.600      79\n2     1.800      54\n3     3.333      74\n4     2.283      62\n5     4.533      85\n6     2.883      55\n\nhead(airquality)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#baser-sample-datasets",
+    "href": "datasets/baseRData/baseRData.html#baser-sample-datasets",
+    "title": "baseR Datasets",
+    "section": "",
+    "text": "data() # will popup all datasets",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
+    ]
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#cars",
+    "href": "datasets/baseRData/baseRData.html#cars",
+    "title": "baseR Datasets",
+    "section": "2 cars",
+    "text": "2 cars\n\n# 50 obs. of 2 variables\nhead(cars)\n\n  speed dist\n1     4    2\n2     4   10\n3     7    4\n4     7   22\n5     8   16\n6     9   10",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
+    ]
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#faithful",
+    "href": "datasets/baseRData/baseRData.html#faithful",
+    "title": "baseR Datasets",
+    "section": "3 faithful",
+    "text": "3 faithful\n\n# 272 obs. of 2 variables\nhead(faithful)\n\n  eruptions waiting\n1     3.600      79\n2     1.800      54\n3     3.333      74\n4     2.283      62\n5     4.533      85\n6     2.883      55",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
+    ]
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#trees",
+    "href": "datasets/baseRData/baseRData.html#trees",
+    "title": "baseR Datasets",
+    "section": "4 trees",
+    "text": "4 trees\n\n# 31 obs. of  3 variables\nhead(trees)\n\n  Girth Height Volume\n1   8.3     70   10.3\n2   8.6     65   10.3\n3   8.8     63   10.2\n4  10.5     72   16.4\n5  10.7     81   18.8\n6  10.8     83   19.7",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
+    ]
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#airquality",
+    "href": "datasets/baseRData/baseRData.html#airquality",
+    "title": "baseR Datasets",
+    "section": "5 airquality",
+    "text": "5 airquality\n\n# 153 obs. of  6 variables\nhead(airquality)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
+    ]
+  },
+  {
+    "objectID": "datasets/baseRData/baseRData.html#mtcars",
+    "href": "datasets/baseRData/baseRData.html#mtcars",
+    "title": "baseR Datasets",
+    "section": "6 mtcars",
+    "text": "6 mtcars\n\n# 32 obs. of 11 variables\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1",
+    "crumbs": [
+      "DataSets",
+      "baseRData"
     ]
   }
 ]
