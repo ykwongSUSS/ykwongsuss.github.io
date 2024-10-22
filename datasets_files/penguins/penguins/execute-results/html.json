@@ -1,0 +1,17 @@
+{
+  "hash": "6ddce6e6c8d4faed5f82227dcaf929b2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Penguins\"\nformat: html\nwarning: FALSE\n---\n\n\n![](penguins2.png){fig-align=\"center\" width=\"400\"}\n\n## Penguins Dataset\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nglimpse(penguins)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nRows: 344\nColumns: 8\n$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               <fct> male, female, female, NA, female, male, female, male…\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…\n```\n\n\n:::\n:::\n\n\n### Drop Missing or \\`na.omit()\\`\n\n\n::: {.cell}\n\n```{.r .cell-code}\npenguins <- na.omit(penguins)\n```\n:::\n\n\n### Scatterplot\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(penguins, aes(x=flipper_length_mm, y=body_mass_g, color=species))+\n  geom_point()+\n  geom_smooth(method=\"lm\",se=FALSE)+\n  ggtitle(\"Body Mass (gm) of penguins\")\n```\n\n::: {.cell-output-display}\n![](penguins_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n------------------------------------------------------------------------\n\n------------------------------------------------------------------------\n\n### Box Plots\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(penguins, aes(x=species, y=body_mass_g,color=species))+\n  geom_boxplot()+\n  ggtitle(\"Body mass of penguins\")\n```\n\n::: {.cell-output-display}\n![](penguins_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n\n### Density Plots\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggridges)\nggplot(penguins, aes(x=body_mass_g, y=species,fill=species))+\n  geom_density_ridges()+\n  theme_bw()\n```\n\n::: {.cell-output-display}\n![](penguins_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "penguins_files/figure-html"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

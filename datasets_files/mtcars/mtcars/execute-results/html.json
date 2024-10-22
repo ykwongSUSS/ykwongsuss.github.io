@@ -1,0 +1,15 @@
+{
+  "hash": "451b7b1bb4a3701df6cb504f7e7a7d53",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"mtcars\"\nformat: html\neditor: visual\n---\n\n\n### Libraries\n\n\n::: {.cell}\n\n:::\n\n\n### Data\n\n\n::: {.cell}\n\n```{.r .cell-code}\nhead(cars)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n  speed dist\n1     4    2\n2     4   10\n3     7    4\n4     7   22\n5     8   16\n6     9   10\n```\n\n\n:::\n\n```{.r .cell-code}\nhead(faithful)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n  eruptions waiting\n1     3.600      79\n2     1.800      54\n3     3.333      74\n4     2.283      62\n5     4.533      85\n6     2.883      55\n```\n\n\n:::\n\n```{.r .cell-code}\nhead(airquality)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6\n```\n\n\n:::\n\n```{.r .cell-code}\nhead(mtcars)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
