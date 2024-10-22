@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./datasets/iris/iris.html" rel="next">
-<link href="./ggplots/facets.html" rel="prev">
+<link href="./datasets/baseRData/baseRData.html" rel="next">
+<link href="./dataframes/pivot_longer.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -171,8 +205,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes/tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">tables</span></a>
+  <a href="./datatypes/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
   </div>
 </li>
       </ul>
@@ -226,8 +260,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ggplots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ggPlots</span></a>
+            <a href="./datasets.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">DataSets</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -235,8 +269,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplots/basic5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">basic5</span></a>
+  <a href="./datasets/baseRData/baseRData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">baseRData</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datasets/iris/iris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">iris</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datasets/penguins/penguins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">penguins</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ggplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ggPlots</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ggplots/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -251,27 +314,62 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">facets</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ggplots/patchwork.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">patchwork</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./datasets.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">DataSets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <a href="./tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datasets/iris/iris.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">iris</span></a>
+  <a href="./tables/contingency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">contingency</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datasets/penguins/penguins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">penguins</span></a>
+  <a href="./tables/frequency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tables/gt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples/kikoWeights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">kikoWeights</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples/grades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">grades</span></a>
   </div>
 </li>
       </ul>
@@ -292,7 +390,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets"><span class="header-section-number">0.1</span> DataSets</a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets"><span class="header-section-number">2</span> Datasets</a></li>
+  <li><a href="#baser" id="toc-baser" class="nav-link" data-scroll-target="#baser"><span class="header-section-number">3</span> BaseR</a></li>
   </ul>
 </nav>
     </div>
@@ -318,11 +418,217 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="datasets" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="datasets"><span class="header-section-number">0.1</span> DataSets</h3>
+<section id="libraries" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">1</span> Libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># includes package `ggplot2`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can list the datasets available in each package using <code>datasets()</code> from library <code>vcdExtras</code> (which includes <code>vcd</code>).</p>
+</section>
+<section id="datasets" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="datasets"><span class="header-section-number">2</span> Datasets</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcdExtra)  <span class="co"># includes package `vcd``</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasets</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Item      class      dim
+1        diamonds data.frame 53940x10
+2       economics data.frame    574x6
+3  economics_long data.frame   2870x4
+4       faithfuld data.frame   5625x3
+5     luv_colours data.frame    657x4
+6         midwest data.frame   437x28
+7             mpg data.frame   234x11
+8          msleep data.frame    83x11
+9    presidential data.frame     12x4
+10          seals data.frame   1155x4
+11      txhousing data.frame   8602x9
+                                                               Title
+1                           Prices of over 50,000 round cut diamonds
+2                                            US economic time series
+3                                            US economic time series
+4                           2d density estimate of Old Faithful data
+5                                            'colors()' in Luv space
+6                                               Midwest demographics
+7  Fuel economy data from 1999 to 2008 for 38 popular models of cars
+8       An updated and expanded version of the mammals sleep dataset
+9                    Terms of 12 presidents from Eisenhower to Trump
+10                                    Vector field of seal movements
+11                                               Housing sales in TX</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasets</span>(<span class="st">"vcd"</span>)[,<span class="fu">c</span>(<span class="st">"Item"</span>,<span class="st">"class"</span>,<span class="st">"dim"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Item      class             dim
+1        Arthritis data.frame            84x5
+2         Baseball data.frame          322x25
+3   BrokenMarriage data.frame            20x4
+4       Bundesliga data.frame         14018x7
+5    Bundestag2005      table            16x5
+6        Butterfly      table              24
+7       CoalMiners      table           2x2x9
+8    DanishWelfare data.frame           180x5
+9       Employment      table           2x6x2
+10      Federalist      table               7
+11         Hitters data.frame           154x4
+12      HorseKicks      table               5
+13        Hospital      table             3x3
+14 JobSatisfaction data.frame             8x4
+15     JointSports data.frame            40x5
+16       Lifeboats data.frame            18x8
+17      MSPatients      array           4x4x2
+18     NonResponse data.frame            12x4
+19     OvaryCancer data.frame            16x5
+20          PreSex      table         2x2x2x2
+21      Punishment data.frame            36x5
+22         RepVict      table             8x8
+23        Rochdale      table 2x2x2x2x2x2x2x2
+24          Saxony      table              13
+25       SexualFun      table             4x4
+26    SpaceShuttle data.frame            24x6
+27         Suicide data.frame           306x6
+28          Trucks data.frame            24x5
+29        UKSoccer      table             5x5
+30    VisualAcuity data.frame            32x4
+31         VonBort data.frame           280x4
+32      WeldonDice      table              11
+33      WomenQueue      table              11</code></pre>
+</div>
+</div>
+</section>
+<section id="baser" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="baser"><span class="header-section-number">3</span> BaseR</h2>
+<p>The baseR datasets are found in the package <code>"datasets"</code>. Thus we use the <code>vcdExtra::datasets()</code> call on the “datasets” package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasets</span>(<span class="st">"datasets"</span>)[,<span class="fu">c</span>(<span class="st">"Item"</span>,<span class="st">"class"</span>,<span class="st">"dim"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      Item      class     dim
+1            AirPassengers         ts     144
+2                  BJsales         ts     150
+3   BJsales.lead (BJsales)         ts     150
+4                      BOD data.frame     6x2
+5                      CO2 data.frame    84x5
+6              ChickWeight data.frame   578x4
+7                    DNase data.frame   176x3
+8           EuStockMarkets      array  1860x4
+9             Formaldehyde data.frame     6x2
+10            HairEyeColor      table   4x4x2
+11            Harman23.cor       list       3
+12            Harman74.cor       list       3
+13                Indometh data.frame    66x3
+14            InsectSprays data.frame    72x2
+15          JohnsonJohnson         ts      84
+16               LakeHuron         ts      98
+17        LifeCycleSavings data.frame    50x5
+18                Loblolly data.frame    84x3
+19                    Nile         ts     100
+20                  Orange data.frame    35x3
+21           OrchardSprays data.frame    64x4
+22             PlantGrowth data.frame    30x2
+23               Puromycin data.frame    23x3
+24               Seatbelts      array   192x8
+25                  Theoph data.frame   132x5
+26                 Titanic      table 4x2x2x2
+27             ToothGrowth data.frame    60x3
+28           UCBAdmissions      table   2x2x6
+29          UKDriverDeaths         ts     192
+30                   UKgas         ts     108
+31             USAccDeaths         ts      72
+32               USArrests data.frame    50x4
+33          USJudgeRatings data.frame   43x12
+34   USPersonalExpenditure      array     5x5
+35               UScitiesD       dist      45
+36                VADeaths      array     5x4
+37                WWWusage         ts     100
+38             WorldPhones      array     7x7
+39             ability.cov       list       3
+40                airmiles         ts      24
+41              airquality data.frame   153x6
+42                anscombe data.frame    11x8
+43                  attenu data.frame   182x5
+44                attitude data.frame    30x7
+45                 austres         ts      89
+46       beaver1 (beavers) data.frame   114x4
+47       beaver2 (beavers) data.frame   100x4
+48                    cars data.frame    50x2
+49                chickwts data.frame    71x2
+50                     co2         ts     468
+51                 crimtab      table   42x22
+52             discoveries         ts     100
+53                   esoph data.frame    88x5
+54                    euro    numeric      11
+55       euro.cross (euro)      array   11x11
+56                eurodist       dist     210
+57                faithful data.frame   272x2
+58  fdeaths (UKLungDeaths)         ts      72
+59                  freeny data.frame    39x5
+60       freeny.x (freeny)      array    39x4
+61       freeny.y (freeny)         ts      39
+62                  infert data.frame   248x8
+63                    iris data.frame   150x5
+64                   iris3      array  50x4x3
+65                 islands    numeric      48
+66  ldeaths (UKLungDeaths)         ts      72
+67                      lh         ts      48
+68                 longley data.frame    16x7
+69                    lynx         ts     114
+70  mdeaths (UKLungDeaths)         ts      72
+71                  morley data.frame   100x3
+72                  mtcars data.frame   32x11
+73                  nhtemp         ts      60
+74                  nottem         ts     240
+75                     npk data.frame    24x5
+76      occupationalStatus      table     8x8
+77                  precip    numeric      70
+78              presidents         ts     120
+79                pressure data.frame    19x2
+80                  quakes data.frame  1000x5
+81                   randu data.frame   400x3
+82                  rivers    numeric     141
+83                    rock data.frame    48x4
+84                   sleep data.frame    20x3
+85  stack.loss (stackloss)    numeric      21
+86     stack.x (stackloss)      array    21x3
+87               stackloss data.frame    21x4
+88       state.abb (state)  character      50
+89      state.area (state)    numeric      50
+90    state.center (state)       list       2
+91  state.division (state)     factor      50
+92      state.name (state)  character      50
+93    state.region (state)     factor      50
+94       state.x77 (state)      array    50x8
+95           sunspot.month         ts    3177
+96            sunspot.year         ts     289
+97                sunspots         ts    2820
+98                   swiss data.frame    47x6
+99                treering         ts    7980
+100                  trees data.frame    31x3
+101                  uspop         ts      19
+102                volcano      array   87x61
+103             warpbreaks data.frame    54x3
+104                  women data.frame    15x2</code></pre>
+</div>
+</div>
 <ol type="1">
-<li><p>iris</p></li>
-<li><p>penguins</p></li>
+<li><p>Common BaseR datasets</p>
+<ol type="1">
+<li>airquality</li>
+<li>cars</li>
+<li>faithful</li>
+<li>mtcars</li>
+<li>trees</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  speed dist
+1     4    2
+2     4   10
+3     7    4
+4     7   22
+5     8   16
+6     9   10</code></pre>
+</div>
+</div></li>
 </ol>
 
 
@@ -740,13 +1046,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ggplots/facets.html" class="pagination-link" aria-label="facets">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">facets</span>
+      <a href="./dataframes/pivot_longer.html" class="pagination-link" aria-label="pivot_longer">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">pivot_longer</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./datasets/iris/iris.html" class="pagination-link" aria-label="iris">
-        <span class="nav-page-text">iris</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./datasets/baseRData/baseRData.html" class="pagination-link" aria-label="baseRData">
+        <span class="nav-page-text">baseRData</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

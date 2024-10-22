@@ -91,7 +91,7 @@
     "href": "datasets.html",
     "title": "datasets",
     "section": "",
-    "text": "0.1 DataSets\n\niris\npenguins",
+    "text": "library(tidyverse)  # includes package `ggplot2`\n\nYou can list the datasets available in each package using datasets() from library vcdExtras (which includes vcd).",
     "crumbs": [
       "DataSets"
     ]
@@ -101,7 +101,7 @@
     "href": "index.html",
     "title": "Preface",
     "section": "",
-    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nggPlots\nDatasets\nTables\nExamples\nReferences\n\nOthers may be added later. The R used in this website tends to lean towards tidyverse.",
+    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nDatasets\nggPlots\nTables\nExamples\nReferences\n\nOthers may be added later. The R used in this website tends to lean towards tidyverse.",
     "crumbs": [
       "Preface"
     ]
@@ -1776,7 +1776,7 @@
     "href": "ggplots/basics.html#barplot",
     "title": "basicPlots",
     "section": "3 BarPlot",
-    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.02 4.7 4.94 4.9 5.36 ...\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"gray\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
+    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  4.97 5.16 4.83 5.03 4.98 ...\n\n# indicate x\n# counting on y is automatic\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"gray\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
     "crumbs": [
       "ggPlots",
       "basics"
@@ -1787,7 +1787,7 @@
     "href": "ggplots/basics.html#columnplot",
     "title": "basicPlots",
     "section": "4 ColumnPlot",
-    "text": "4 ColumnPlot\n\nschool &lt;- c(\"NSHD\",\"SHBS\",\"SBIZ\",\"LAW\")\nnumSG &lt;- c(68,140,90,55)\ndf2 &lt;- data.frame(school,numSG)\ndf2\n\n  school numSG\n1   NSHD    68\n2   SHBS   140\n3   SBIZ    90\n4    LAW    55\n\nggplot(df2, aes(x=school, y=numSG, fill=school))+\n  labs(\n    title=\"ColumnPlot\",\n   subtitle=\"yValues\")+\n  geom_col(color=\"gray\")+\n  scale_fill_manual(values=c(\"lightgreen\",\"yellow\",\"lightblue\",\"purple\"))+\n  geom_text(aes(label=numSG),nudge_y=10)+\n  ylim(0,180)+\n  theme_bw()",
+    "text": "4 ColumnPlot\n\nschool &lt;- c(\"NSHD\",\"SHBS\",\"SBIZ\",\"LAW\")\nnumSG &lt;- c(68,140,90,55)\ndf2 &lt;- data.frame(x=school,y=numSG)\ndf2\n\n     x   y\n1 NSHD  68\n2 SHBS 140\n3 SBIZ  90\n4  LAW  55\n\n# both x and y must be indicated\nggplot(df2, aes(x=school, y=numSG, fill=school))+\n  labs(\n    title=\"ColumnPlot\",\n    subtitle=\"yValues\")+\n  geom_col(color=\"gray\")+\n  scale_fill_manual(values=c(\"lightgreen\",\"yellow\",\"lightblue\",\"purple\"))+\n  geom_text(aes(label=numSG),nudge_y=10)+\n  ylim(0,180)+\n  theme_bw()",
     "crumbs": [
       "ggPlots",
       "basics"
@@ -1798,7 +1798,7 @@
     "href": "ggplots/basics.html#histogram",
     "title": "basicPlots",
     "section": "5 Histogram",
-    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.02 4.7 4.94 4.9 5.36 ...\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
+    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  4.97 5.16 4.83 5.03 4.98 ...\n\n  head(dfWind)\n\n  direction    speed\n1         N 4.974077\n2         S 5.157644\n3         E 4.829416\n4         W 5.025681\n5         W 4.980848\n6         E 4.878386\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
     "crumbs": [
       "ggPlots",
       "basics"
@@ -1886,6 +1886,47 @@
     "crumbs": [
       "DataSets",
       "baseRData"
+    ]
+  },
+  {
+    "objectID": "datasets.html#libraries",
+    "href": "datasets.html#libraries",
+    "title": "datasets",
+    "section": "",
+    "text": "library(tidyverse)  # includes package `ggplot2`\n\nYou can list the datasets available in each package using datasets() from library vcdExtras (which includes vcd).",
+    "crumbs": [
+      "DataSets"
+    ]
+  },
+  {
+    "objectID": "datasets.html#datasets",
+    "href": "datasets.html#datasets",
+    "title": "datasets",
+    "section": "2 Datasets",
+    "text": "2 Datasets\n\nlibrary(vcdExtra)  # includes package `vcd``\ndatasets(\"ggplot2\")\n\n             Item      class      dim\n1        diamonds data.frame 53940x10\n2       economics data.frame    574x6\n3  economics_long data.frame   2870x4\n4       faithfuld data.frame   5625x3\n5     luv_colours data.frame    657x4\n6         midwest data.frame   437x28\n7             mpg data.frame   234x11\n8          msleep data.frame    83x11\n9    presidential data.frame     12x4\n10          seals data.frame   1155x4\n11      txhousing data.frame   8602x9\n                                                               Title\n1                           Prices of over 50,000 round cut diamonds\n2                                            US economic time series\n3                                            US economic time series\n4                           2d density estimate of Old Faithful data\n5                                            'colors()' in Luv space\n6                                               Midwest demographics\n7  Fuel economy data from 1999 to 2008 for 38 popular models of cars\n8       An updated and expanded version of the mammals sleep dataset\n9                    Terms of 12 presidents from Eisenhower to Trump\n10                                    Vector field of seal movements\n11                                               Housing sales in TX\n\ndatasets(\"vcd\")[,c(\"Item\",\"class\",\"dim\")]\n\n              Item      class             dim\n1        Arthritis data.frame            84x5\n2         Baseball data.frame          322x25\n3   BrokenMarriage data.frame            20x4\n4       Bundesliga data.frame         14018x7\n5    Bundestag2005      table            16x5\n6        Butterfly      table              24\n7       CoalMiners      table           2x2x9\n8    DanishWelfare data.frame           180x5\n9       Employment      table           2x6x2\n10      Federalist      table               7\n11         Hitters data.frame           154x4\n12      HorseKicks      table               5\n13        Hospital      table             3x3\n14 JobSatisfaction data.frame             8x4\n15     JointSports data.frame            40x5\n16       Lifeboats data.frame            18x8\n17      MSPatients      array           4x4x2\n18     NonResponse data.frame            12x4\n19     OvaryCancer data.frame            16x5\n20          PreSex      table         2x2x2x2\n21      Punishment data.frame            36x5\n22         RepVict      table             8x8\n23        Rochdale      table 2x2x2x2x2x2x2x2\n24          Saxony      table              13\n25       SexualFun      table             4x4\n26    SpaceShuttle data.frame            24x6\n27         Suicide data.frame           306x6\n28          Trucks data.frame            24x5\n29        UKSoccer      table             5x5\n30    VisualAcuity data.frame            32x4\n31         VonBort data.frame           280x4\n32      WeldonDice      table              11\n33      WomenQueue      table              11",
+    "crumbs": [
+      "DataSets"
+    ]
+  },
+  {
+    "objectID": "datasets.html#baser",
+    "href": "datasets.html#baser",
+    "title": "datasets",
+    "section": "3 BaseR",
+    "text": "3 BaseR\nThe baseR datasets are found in the package \"datasets\". Thus we use the vcdExtra::datasets() call on the “datasets” package.\n\ndatasets(\"datasets\")[,c(\"Item\",\"class\",\"dim\")]\n\n                      Item      class     dim\n1            AirPassengers         ts     144\n2                  BJsales         ts     150\n3   BJsales.lead (BJsales)         ts     150\n4                      BOD data.frame     6x2\n5                      CO2 data.frame    84x5\n6              ChickWeight data.frame   578x4\n7                    DNase data.frame   176x3\n8           EuStockMarkets      array  1860x4\n9             Formaldehyde data.frame     6x2\n10            HairEyeColor      table   4x4x2\n11            Harman23.cor       list       3\n12            Harman74.cor       list       3\n13                Indometh data.frame    66x3\n14            InsectSprays data.frame    72x2\n15          JohnsonJohnson         ts      84\n16               LakeHuron         ts      98\n17        LifeCycleSavings data.frame    50x5\n18                Loblolly data.frame    84x3\n19                    Nile         ts     100\n20                  Orange data.frame    35x3\n21           OrchardSprays data.frame    64x4\n22             PlantGrowth data.frame    30x2\n23               Puromycin data.frame    23x3\n24               Seatbelts      array   192x8\n25                  Theoph data.frame   132x5\n26                 Titanic      table 4x2x2x2\n27             ToothGrowth data.frame    60x3\n28           UCBAdmissions      table   2x2x6\n29          UKDriverDeaths         ts     192\n30                   UKgas         ts     108\n31             USAccDeaths         ts      72\n32               USArrests data.frame    50x4\n33          USJudgeRatings data.frame   43x12\n34   USPersonalExpenditure      array     5x5\n35               UScitiesD       dist      45\n36                VADeaths      array     5x4\n37                WWWusage         ts     100\n38             WorldPhones      array     7x7\n39             ability.cov       list       3\n40                airmiles         ts      24\n41              airquality data.frame   153x6\n42                anscombe data.frame    11x8\n43                  attenu data.frame   182x5\n44                attitude data.frame    30x7\n45                 austres         ts      89\n46       beaver1 (beavers) data.frame   114x4\n47       beaver2 (beavers) data.frame   100x4\n48                    cars data.frame    50x2\n49                chickwts data.frame    71x2\n50                     co2         ts     468\n51                 crimtab      table   42x22\n52             discoveries         ts     100\n53                   esoph data.frame    88x5\n54                    euro    numeric      11\n55       euro.cross (euro)      array   11x11\n56                eurodist       dist     210\n57                faithful data.frame   272x2\n58  fdeaths (UKLungDeaths)         ts      72\n59                  freeny data.frame    39x5\n60       freeny.x (freeny)      array    39x4\n61       freeny.y (freeny)         ts      39\n62                  infert data.frame   248x8\n63                    iris data.frame   150x5\n64                   iris3      array  50x4x3\n65                 islands    numeric      48\n66  ldeaths (UKLungDeaths)         ts      72\n67                      lh         ts      48\n68                 longley data.frame    16x7\n69                    lynx         ts     114\n70  mdeaths (UKLungDeaths)         ts      72\n71                  morley data.frame   100x3\n72                  mtcars data.frame   32x11\n73                  nhtemp         ts      60\n74                  nottem         ts     240\n75                     npk data.frame    24x5\n76      occupationalStatus      table     8x8\n77                  precip    numeric      70\n78              presidents         ts     120\n79                pressure data.frame    19x2\n80                  quakes data.frame  1000x5\n81                   randu data.frame   400x3\n82                  rivers    numeric     141\n83                    rock data.frame    48x4\n84                   sleep data.frame    20x3\n85  stack.loss (stackloss)    numeric      21\n86     stack.x (stackloss)      array    21x3\n87               stackloss data.frame    21x4\n88       state.abb (state)  character      50\n89      state.area (state)    numeric      50\n90    state.center (state)       list       2\n91  state.division (state)     factor      50\n92      state.name (state)  character      50\n93    state.region (state)     factor      50\n94       state.x77 (state)      array    50x8\n95           sunspot.month         ts    3177\n96            sunspot.year         ts     289\n97                sunspots         ts    2820\n98                   swiss data.frame    47x6\n99                treering         ts    7980\n100                  trees data.frame    31x3\n101                  uspop         ts      19\n102                volcano      array   87x61\n103             warpbreaks data.frame    54x3\n104                  women data.frame    15x2\n\n\n\nCommon BaseR datasets\n\nairquality\ncars\nfaithful\nmtcars\ntrees\n\n\nhead(cars)\n\n  speed dist\n1     4    2\n2     4   10\n3     7    4\n4     7   22\n5     8   16\n6     9   10",
+    "crumbs": [
+      "DataSets"
+    ]
+  },
+  {
+    "objectID": "ggplots/basics.html#density",
+    "href": "ggplots/basics.html#density",
+    "title": "basicPlots",
+    "section": "6 Density",
+    "text": "6 Density",
+    "crumbs": [
+      "ggPlots",
+      "basics"
     ]
   }
 ]
