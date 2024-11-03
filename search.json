@@ -1331,7 +1331,7 @@
     "href": "tables/frequency.html",
     "title": "frequency",
     "section": "",
-    "text": "library(tidyverse)\ntb &lt;- read_csv(\"id, gender, lgrades\n  SD101, M, C+\n  SD102, F, F\n  SD103, F, B\n  SD104, F, A+\n  SD105, M, B\n  SD106, F, B-\n  SD107, M, A\n  SD108, M, C\n  SD109, M, B-\n  SD110, M, B-\n\")\nlvlgender= c(\"M\",\"F\")\nlvlgrades= c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender&lt;-factor(tb$gender, lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades,lvlgrades)\ntb\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-     \n\n\n\n1. Frequency table (also called a contingency table)\n\n# use table function to count frequency in lgrades\ntblfreq &lt;- table(tb$lgrades) \ntblfreq\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\n\n\n# redo table back into a dataframe\ndf &lt;- data.frame(tblfreq)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1\n\n\n\n\n2. Two-way Contingency table (gender-grades)\n\ntwoWay &lt;- table(tb$gender,tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1\n\n\n\n\n3. Look up - filter\nfind those that have B-\n\nfilter(tb,lgrades==\"B-\")\n\n# A tibble: 3 × 3\n  id    gender lgrades\n  &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n1 SD106 F      B-     \n2 SD109 M      B-     \n3 SD110 M      B-",
+    "text": "Code\nlibrary(tidyverse)\ntb &lt;- read_csv(\"id, gender, lgrades\n  SD101, M, C+\n  SD102, F, F\n  SD103, F, B\n  SD104, F, A+\n  SD105, M, B\n  SD106, F, B-\n  SD107, M, A\n  SD108, M, C\n  SD109, M, B-\n  SD110, M, B-\n\")\nlvlgender= c(\"M\",\"F\")\nlvlgrades= c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender&lt;-factor(tb$gender, lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades,lvlgrades)\n\n\n\ntb\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-",
     "crumbs": [
       "Tables",
       "frequency"
@@ -1382,7 +1382,7 @@
   {
     "objectID": "datatypes/table.html",
     "href": "datatypes/table.html",
-    "title": "tables-frequency",
+    "title": "table-frequency",
     "section": "",
     "text": "library(tidyverse)",
     "crumbs": [
@@ -1393,7 +1393,7 @@
   {
     "objectID": "datatypes/table.html#data",
     "href": "datatypes/table.html#data",
-    "title": "tables-frequency",
+    "title": "table-frequency",
     "section": "1 Data",
     "text": "1 Data\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"M\",\"F\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-",
     "crumbs": [
@@ -1448,7 +1448,7 @@
   {
     "objectID": "datatypes/table.html#grades-freq-in-dataframe",
     "href": "datatypes/table.html#grades-freq-in-dataframe",
-    "title": "tables-frequency",
+    "title": "table-frequency",
     "section": "4 grades-freq in dataframe",
     "text": "4 grades-freq in dataframe\n\n# redo table back into a dataframe\ndf &lt;- data.frame(oneWay)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
     "crumbs": [
@@ -1459,7 +1459,7 @@
   {
     "objectID": "datatypes/table.html#column-plot",
     "href": "datatypes/table.html#column-plot",
-    "title": "tables-frequency",
+    "title": "table-frequency",
     "section": "5 column plot",
     "text": "5 column plot\n\nggplot(df, aes(x=grades, y=freq))+\n  geom_col(fill=\"lightblue\", color=\"black\")",
     "crumbs": [
@@ -1470,7 +1470,7 @@
   {
     "objectID": "datatypes/table.html#one-way-contingency",
     "href": "datatypes/table.html#one-way-contingency",
-    "title": "tables-frequency",
+    "title": "table-frequency",
     "section": "2 one-way contingency",
     "text": "2 one-way contingency\n\noneWay &lt;- table(tb$lgrades)\noneWay\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(oneWay)\n\n[1] \"table\"",
     "crumbs": [
@@ -1481,9 +1481,9 @@
   {
     "objectID": "datatypes/table.html#two-way-contingency",
     "href": "datatypes/table.html#two-way-contingency",
-    "title": "tables-frequency",
+    "title": "table-frequency",
     "section": "3 two-way contingency",
-    "text": "3 two-way contingency\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1",
+    "text": "3 two-way contingency\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1\n\nclass(twoWay)\n\n[1] \"table\"",
     "crumbs": [
       "Datatypes",
       "table"
@@ -1503,7 +1503,7 @@
   {
     "objectID": "tables/contingency.html",
     "href": "tables/contingency.html",
-    "title": "tables",
+    "title": "2x2 Contingency Table",
     "section": "",
     "text": "library(tidyverse)",
     "crumbs": [
@@ -1514,7 +1514,7 @@
   {
     "objectID": "tables/contingency.html#libraries",
     "href": "tables/contingency.html#libraries",
-    "title": "tables",
+    "title": "2x2 Contingency Table",
     "section": "",
     "text": "library(tidyverse)",
     "crumbs": [
@@ -1525,7 +1525,7 @@
   {
     "objectID": "tables/contingency.html#matrix-table",
     "href": "tables/contingency.html#matrix-table",
-    "title": "tables",
+    "title": "2x2 Contingency Table",
     "section": "2 “Matrix” table",
     "text": "2 “Matrix” table\n\n# Matrix: using nrows\nM &lt;- matrix(\n c(327,50,31,192),nrow=2,byrow=TRUE)\ncolnames(M) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(M) &lt;- c(\"Positive\",\"Negative\")\nM\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M)\n\n[1] \"matrix\" \"array\" \n\n# using cbind (or rbind)\nN &lt;- cbind(c(327,31),c(50,192))\ndimnames(N) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nN\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nstr(N)\n\n num [1:2, 1:2] 327 31 50 192\n - attr(*, \"dimnames\")=List of 2\n  ..$ : chr [1:2] \"Positive\" \"Negative\"\n  ..$ : chr [1:2] \"Disease\" \"NoDisease\"\n\n# using dim()\nP &lt;- c(327,50,31,192)\ndim(P) &lt;- c(2,2)\ndimnames(P) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nP\n\n         Disease NoDisease\nPositive     327        31\nNegative      50       192\n\nclass(P)\n\n[1] \"matrix\" \"array\"",
     "crumbs": [
@@ -1536,9 +1536,9 @@
   {
     "objectID": "tables/contingency.html#simple-table-from-a-dataframe",
     "href": "tables/contingency.html#simple-table-from-a-dataframe",
-    "title": "tables",
-    "section": "3 Simple Table from a dataframe",
-    "text": "3 Simple Table from a dataframe\n\ndf &lt;- data.frame(\n  c(327,50),\n  c(50,192)\n)\ncolnames(df) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(df) &lt;- c(\"Positive\",\"Negative\")\ndf\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(df)\n\n[1] \"data.frame\"\n\ntab &lt;- as.table(as.matrix(df))\ntab\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(tab)\n\n[1] \"table\"\n\naddmargins(tab)\n\n         Disease NoDisease Sum\nPositive     327        50 377\nNegative      50       192 242\nSum          377       242 619",
+    "title": "2x2 Contingency Table",
+    "section": "5 Simple Table from a dataframe",
+    "text": "5 Simple Table from a dataframe\n\ndf &lt;- data.frame(\n  c(327,50),\n  c(50,192)\n)\ncolnames(df) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(df) &lt;- c(\"Positive\",\"Negative\")\ndf\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(df)\n\n[1] \"data.frame\"\n\ntab &lt;- as.table(as.matrix(df))\ntab\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(tab)\n\n[1] \"table\"\n\naddmargins(tab)\n\n         Disease NoDisease Sum\nPositive     327        50 377\nNegative      50       192 242\nSum          377       242 619",
     "crumbs": [
       "Tables",
       "contingency"
@@ -1547,9 +1547,9 @@
   {
     "objectID": "tables/contingency.html#xtabs-require-dataframe-or-tibble",
     "href": "tables/contingency.html#xtabs-require-dataframe-or-tibble",
-    "title": "tables",
-    "section": "4 xtabs require dataframe or tibble",
-    "text": "4 xtabs require dataframe or tibble\n\n# tribble is easier to enter table values by rows\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n# xtabs require a dataframe or tibble, returns table\ntab2 &lt;- xtabs( Values ~ Predicted + Actual, data=df2)\naddmargins(tab2)\n\n          Actual\nPredicted  Disease NoDisease Sum\n  Negative      50       192 242\n  Positive     327        50 377\n  Sum          377       242 619\n\nclass(tab2)\n\n[1] \"xtabs\" \"table\"\n\n# a nicer table (maybe)\nftable(tab2)\n\n          Actual Disease NoDisease\nPredicted                         \nNegative              50       192\nPositive             327        50",
+    "title": "2x2 Contingency Table",
+    "section": "6 xtabs require dataframe or tibble",
+    "text": "6 xtabs require dataframe or tibble\n\n# tribble is easier to enter table values by rows\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n# xtabs require a dataframe or tibble, returns table\ntab2 &lt;- xtabs( Values ~ Predicted + Actual, data=df2)\naddmargins(tab2)\n\n          Actual\nPredicted  Disease NoDisease Sum\n  Negative      50       192 242\n  Positive     327        50 377\n  Sum          377       242 619\n\nclass(tab2)\n\n[1] \"xtabs\" \"table\"\n\n# a nicer table (maybe)\nftable(tab2)\n\n          Actual Disease NoDisease\nPredicted                         \nNegative              50       192\nPositive             327        50",
     "crumbs": [
       "Tables",
       "contingency"
@@ -1946,5 +1946,71 @@
     "title": "copyPaste",
     "section": "",
     "text": "Example: copy and paste random sample of numbers from a web page or a PDF.\nData from example 1.1 of Devore’s Mathematical Statistics\n6.1 12.6 34.7 1.6 18.8 2.2 3.0 2.2 5.6 3.8 2.2 3.1 1.3 1.1 14.1 4.0 21.0 6.1 1.3 20.4 7.5 3.9 10.1 8.1 19.5 5.2 12.0 15.8 10.4 5.2 6.4 10.8 83.1 3.6 6.2 6.3 16.3 12.7 1.3 0.8 8.8 5.1 3.7 26.3 6.0 48.0 8.2 11.7 7.2 3.9 15.3 16.6 8.8 12.0 4.7 14.7 6.4 17.0 2.5 16.2\n\n\n# data copy and pasted from a pdf 'table' and\n# appears as a long string.\n\na &lt;- c(\"6.1 12.6 34.7 1.6 18.8 2.2 3.0 2.2 5.6 3.8 2.2 3.1 1.3 1.1 14.1 4.0 21.0 6.1 1.3 20.4 7.5 3.9 10.1 8.1 19.5 5.2 12.0 15.8 10.4 5.2 6.4 10.8 83.1 3.6 6.2 6.3 16.3 12.7 1.3 0.8 8.8 5.1 3.7 26.3 6.0 48.0 8.2 11.7 7.2 3.9 15.3 16.6 8.8 12.0 4.7 14.7 6.4 17.0 2.5 16.2\")\nstr(a)\n\n chr \"6.1 12.6 34.7 1.6 18.8 2.2 3.0 2.2 5.6 3.8 2.2 3.1 1.3 1.1 14.1 4.0 21.0 6.1 1.3 20.4 7.5 3.9 10.1 8.1 19.5 5.2\"| __truncated__\n\n\n\n# extract out all numbers of the string\n# b is a list of chr\nb &lt;- strsplit(a, split=\" \") # separated blanks \nstr(b)\n\nList of 1\n $ : chr [1:60] \"6.1\" \"12.6\" \"34.7\" \"1.6\" ...\n\n\n\n# convert list to a string of chr\n# by unlist\nc &lt;- unlist(b) \nstr(c)\n\n chr [1:60] \"6.1\" \"12.6\" \"34.7\" \"1.6\" \"18.8\" \"2.2\" \"3.0\" \"2.2\" \"5.6\" \"3.8\" ...\n\n\n\n# convert chr to vector numeric\nd &lt;- as.vector(c, 'numeric') \nstr(d)\n\n num [1:60] 6.1 12.6 34.7 1.6 18.8 2.2 3 2.2 5.6 3.8 ...\n\n# finally convert to a data.frame\ndf &lt;- data.frame(pcent = d)\nstr(df)\n\n'data.frame':   60 obs. of  1 variable:\n $ pcent: num  6.1 12.6 34.7 1.6 18.8 2.2 3 2.2 5.6 3.8 ...\n\n\n\nlibrary(tidyverse)\n\nggplot(df, aes(x=d))+\n  geom_histogram(bins=8, fill=\"lightblue\", color=\"black\")+\n  labs(\n    x=\"Fundraising expenses (percent of total expenditures)\",\n    y=\"Number of charities\",\n    title=\"A histogram for the charity fundraising data of Example 1.1\"\n  )"
+  },
+  {
+    "objectID": "tables/frequency.html#one-way-contingency-table-grades",
+    "href": "tables/frequency.html#one-way-contingency-table-grades",
+    "title": "frequency",
+    "section": "1 One-way contingency table (grades)",
+    "text": "1 One-way contingency table (grades)\n\n# use table function to count frequency in lgrades\ntblfreq &lt;- table(tb$lgrades) \ntblfreq\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\n\n\n# redo table back into a dataframe\ndf &lt;- data.frame(tblfreq)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "Tables",
+      "frequency"
+    ]
+  },
+  {
+    "objectID": "tables/frequency.html#two-way-contingency-table-gender-grades",
+    "href": "tables/frequency.html#two-way-contingency-table-gender-grades",
+    "title": "frequency",
+    "section": "2 Two-way Contingency table (gender-grades)",
+    "text": "2 Two-way Contingency table (gender-grades)\n\ntwoWay &lt;- table(tb$gender,tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1",
+    "crumbs": [
+      "Tables",
+      "frequency"
+    ]
+  },
+  {
+    "objectID": "tables/contingency.html#using-matrix",
+    "href": "tables/contingency.html#using-matrix",
+    "title": "2x2 Contingency Table",
+    "section": "2 Using matrix",
+    "text": "2 Using matrix\n\n# Matrix: using nrows\nM1 &lt;- matrix(\n c(327,50,31,192),nrow=2,byrow=TRUE)\ncolnames(M1) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(M1) &lt;- c(\"Positive\",\"Negative\")\nM1\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M1)\n\n[1] \"matrix\" \"array\"",
+    "crumbs": [
+      "Tables",
+      "contingency"
+    ]
+  },
+  {
+    "objectID": "tables/contingency.html#using-cbind-or-rbind",
+    "href": "tables/contingency.html#using-cbind-or-rbind",
+    "title": "2x2 Contingency Table",
+    "section": "3 Using cbind (or rbind)",
+    "text": "3 Using cbind (or rbind)\n\nM2 &lt;- cbind(c(327,31),c(50,192))\ndimnames(M2) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nM2\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M2)\n\n[1] \"matrix\" \"array\"",
+    "crumbs": [
+      "Tables",
+      "contingency"
+    ]
+  },
+  {
+    "objectID": "tables/contingency.html#using-list",
+    "href": "tables/contingency.html#using-list",
+    "title": "2x2 Contingency Table",
+    "section": "4 Using list",
+    "text": "4 Using list\n\nP &lt;- c(327,50,31,192)\ndim(P) &lt;- c(2,2)\ndimnames(P) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nP\n\n         Disease NoDisease\nPositive     327        31\nNegative      50       192\n\nclass(P)\n\n[1] \"matrix\" \"array\"",
+    "crumbs": [
+      "Tables",
+      "contingency"
+    ]
+  },
+  {
+    "objectID": "tables/contingency.html#using-dim",
+    "href": "tables/contingency.html#using-dim",
+    "title": "2x2 Contingency Table",
+    "section": "4 Using dim",
+    "text": "4 Using dim\n\nM3 &lt;- c(327,50,31,192)\ndim(M3) &lt;- c(2,2)\ndimnames(M3) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nM3\n\n         Disease NoDisease\nPositive     327        31\nNegative      50       192\n\nclass(M3)\n\n[1] \"matrix\" \"array\"",
+    "crumbs": [
+      "Tables",
+      "contingency"
+    ]
   }
 ]

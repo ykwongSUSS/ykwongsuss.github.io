@@ -390,9 +390,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#frequency-table-also-called-a-contingency-table" id="toc-frequency-table-also-called-a-contingency-table" class="nav-link active" data-scroll-target="#frequency-table-also-called-a-contingency-table">1. Frequency table (also called a contingency table)</a></li>
-  <li><a href="#two-way-contingency-table-gender-grades" id="toc-two-way-contingency-table-gender-grades" class="nav-link" data-scroll-target="#two-way-contingency-table-gender-grades">2. Two-way Contingency table (<code>gender-grades</code>)</a></li>
-  <li><a href="#look-up---filter" id="toc-look-up---filter" class="nav-link" data-scroll-target="#look-up---filter">3. Look up - <code>filter</code></a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">0.1</span> Data</a></li>
+  <li><a href="#one-way-contingency-table-grades" id="toc-one-way-contingency-table-grades" class="nav-link" data-scroll-target="#one-way-contingency-table-grades"><span class="header-section-number">1</span> One-way contingency table (grades)</a></li>
+  <li><a href="#two-way-contingency-table-gender-grades" id="toc-two-way-contingency-table-gender-grades" class="nav-link" data-scroll-target="#two-way-contingency-table-gender-grades"><span class="header-section-number">2</span> Two-way Contingency table (<code>gender-grades</code>)</a></li>
   </ul>
 </nav>
     </div>
@@ -418,7 +418,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="data" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="data"><span class="header-section-number">0.1</span> Data</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"id, gender, lgrades</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SD101, M, C+</span></span>
@@ -435,8 +439,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>lvlgender<span class="ot">=</span> <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>lvlgrades<span class="ot">=</span> <span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>,<span class="st">"C+"</span>,<span class="st">"C"</span>,<span class="st">"D+"</span>,<span class="st">"D"</span>,<span class="st">"F"</span>)</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>gender<span class="ot">&lt;-</span><span class="fu">factor</span>(tb<span class="sc">$</span>gender, lvlgender)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>lgrades <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb<span class="sc">$</span>lgrades,lvlgrades)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>lgrades <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb<span class="sc">$</span>lgrades,lvlgrades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
    id    gender lgrades
@@ -453,12 +460,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 SD110 M      B-     </code></pre>
 </div>
 </div>
-<section id="frequency-table-also-called-a-contingency-table" class="level3">
-<h3 class="anchored" data-anchor-id="frequency-table-also-called-a-contingency-table">1. Frequency table (also called a contingency table)</h3>
+</section>
+<section id="one-way-contingency-table-grades" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="one-way-contingency-table-grades"><span class="header-section-number">1</span> One-way contingency table (grades)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use table function to count frequency in lgrades</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tblfreq <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>lgrades) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tblfreq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use table function to count frequency in lgrades</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tblfreq <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>lgrades) </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tblfreq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 A+  A A- B+  B B- C+  C D+  D  F 
@@ -466,10 +474,10 @@ A+  A A- B+  B B- C+  C D+  D  F
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># redo table back into a dataframe</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tblfreq)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"grades"</span>,<span class="st">"freq"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># redo table back into a dataframe</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tblfreq)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"grades"</span>,<span class="st">"freq"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   grades freq
 1      A+    1
@@ -486,31 +494,16 @@ A+  A A- B+  B B- C+  C D+  D  F
 </div>
 </div>
 </section>
-<section id="two-way-contingency-table-gender-grades" class="level3">
-<h3 class="anchored" data-anchor-id="two-way-contingency-table-gender-grades">2. Two-way Contingency table (<code>gender-grades</code>)</h3>
+<section id="two-way-contingency-table-gender-grades" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="two-way-contingency-table-gender-grades"><span class="header-section-number">2</span> Two-way Contingency table (<code>gender-grades</code>)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>twoWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender,tb<span class="sc">$</span>lgrades)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>twoWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>twoWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender,tb<span class="sc">$</span>lgrades)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>twoWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   
     A+ A A- B+ B B- C+ C D+ D F
   M  0 1  0  0 1  2  1 1  0 0 0
   F  1 0  0  0 1  1  0 0  0 0 1</code></pre>
-</div>
-</div>
-</section>
-<section id="look-up---filter" class="level3">
-<h3 class="anchored" data-anchor-id="look-up---filter">3. Look up - <code>filter</code></h3>
-<p>find those that have B-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(tb,lgrades<span class="sc">==</span><span class="st">"B-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-  id    gender lgrades
-  &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  
-1 SD106 F      B-     
-2 SD109 M      B-     
-3 SD110 M      B-     </code></pre>
 </div>
 </div>
 

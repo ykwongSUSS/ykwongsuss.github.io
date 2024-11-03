@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WebR - tables</title>
+<title>WebR - 2x2 Contingency Table</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -391,9 +391,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a></li>
-  <li><a href="#matrix-table" id="toc-matrix-table" class="nav-link" data-scroll-target="#matrix-table"><span class="header-section-number">2</span> “Matrix” table</a></li>
-  <li><a href="#simple-table-from-a-dataframe" id="toc-simple-table-from-a-dataframe" class="nav-link" data-scroll-target="#simple-table-from-a-dataframe"><span class="header-section-number">3</span> Simple Table from a dataframe</a></li>
-  <li><a href="#xtabs-require-dataframe-or-tibble" id="toc-xtabs-require-dataframe-or-tibble" class="nav-link" data-scroll-target="#xtabs-require-dataframe-or-tibble"><span class="header-section-number">4</span> xtabs require dataframe or tibble</a></li>
+  <li><a href="#using-matrix" id="toc-using-matrix" class="nav-link" data-scroll-target="#using-matrix"><span class="header-section-number">2</span> Using matrix</a></li>
+  <li><a href="#using-cbind-or-rbind" id="toc-using-cbind-or-rbind" class="nav-link" data-scroll-target="#using-cbind-or-rbind"><span class="header-section-number">3</span> Using cbind (or rbind)</a></li>
+  <li><a href="#using-dim" id="toc-using-dim" class="nav-link" data-scroll-target="#using-dim"><span class="header-section-number">4</span> Using dim</a></li>
+  <li><a href="#simple-table-from-a-dataframe" id="toc-simple-table-from-a-dataframe" class="nav-link" data-scroll-target="#simple-table-from-a-dataframe"><span class="header-section-number">5</span> Simple Table from a dataframe</a></li>
+  <li><a href="#xtabs-require-dataframe-or-tibble" id="toc-xtabs-require-dataframe-or-tibble" class="nav-link" data-scroll-target="#xtabs-require-dataframe-or-tibble"><span class="header-section-number">6</span> xtabs require dataframe or tibble</a></li>
   </ul>
 </nav>
     </div>
@@ -402,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/contingency.html">contingency</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">tables</h1>
+<h1 class="title">2x2 Contingency Table</h1>
 </div>
 
 
@@ -425,58 +427,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matrix-table" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="matrix-table"><span class="header-section-number">2</span> “Matrix” table</h2>
+<section id="using-matrix" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="using-matrix"><span class="header-section-number">2</span> Using matrix</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix: using nrows</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>,<span class="dv">31</span>,<span class="dv">192</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>M1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Disease NoDisease
 Positive     327        50
 Negative      31       192</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "matrix" "array" </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using cbind (or rbind)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">31</span>),<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">192</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(N) <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>),<span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         Disease NoDisease
-Positive     327        50
-Negative      31       192</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> num [1:2, 1:2] 327 31 50 192
- - attr(*, "dimnames")=List of 2
-  ..$ : chr [1:2] "Positive" "Negative"
-  ..$ : chr [1:2] "Disease" "NoDisease"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using dim()</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>,<span class="dv">31</span>,<span class="dv">192</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(P) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(P) <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>),<span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>P</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         Disease NoDisease
-Positive     327        31
-Negative      50       192</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "matrix" "array" </code></pre>
 </div>
 </div>
 </section>
-<section id="simple-table-from-a-dataframe" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="simple-table-from-a-dataframe"><span class="header-section-number">3</span> Simple Table from a dataframe</h2>
+<section id="using-cbind-or-rbind" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="using-cbind-or-rbind"><span class="header-section-number">3</span> Using cbind (or rbind)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">31</span>),<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">192</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(M2) <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>),<span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>M2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Disease NoDisease
+Positive     327        50
+Negative      31       192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+</section>
+<section id="using-dim" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="using-dim"><span class="header-section-number">4</span> Using dim</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>,<span class="dv">31</span>,<span class="dv">192</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(M3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(M3) <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>),<span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>M3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Disease NoDisease
+Positive     327        31
+Negative      50       192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+</section>
+<section id="simple-table-from-a-dataframe" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="simple-table-from-a-dataframe"><span class="header-section-number">5</span> Simple Table from a dataframe</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>),</span>
@@ -514,8 +521,8 @@ Sum          377       242 619</code></pre>
 </div>
 </div>
 </section>
-<section id="xtabs-require-dataframe-or-tibble" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="xtabs-require-dataframe-or-tibble"><span class="header-section-number">4</span> xtabs require dataframe or tibble</h2>
+<section id="xtabs-require-dataframe-or-tibble" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="xtabs-require-dataframe-or-tibble"><span class="header-section-number">6</span> xtabs require dataframe or tibble</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tribble is easier to enter table values by rows</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span><span class="fu">tribble</span>(</span>
