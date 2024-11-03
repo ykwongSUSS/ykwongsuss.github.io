@@ -1307,7 +1307,7 @@
     "href": "tables.html",
     "title": "tables",
     "section": "",
-    "text": "1 Tables\n\nxtab (contigency tables)\ntable (frequency tables)\ngt",
+    "text": "1 Tables\n\ntable (frequency tables)\nxtab (continency tables)\ngt",
     "crumbs": [
       "Tables"
     ]
@@ -1508,7 +1508,7 @@
     "text": "library(tidyverse)",
     "crumbs": [
       "Tables",
-      "contigency"
+      "contingency"
     ]
   },
   {
@@ -1519,7 +1519,7 @@
     "text": "library(tidyverse)",
     "crumbs": [
       "Tables",
-      "contigency"
+      "contingency"
     ]
   },
   {
@@ -1530,7 +1530,7 @@
     "text": "2 “Matrix” table\n\n# Matrix: using nrows\nM &lt;- matrix(\n c(327,50,31,192),nrow=2,byrow=TRUE)\ncolnames(M) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(M) &lt;- c(\"Positive\",\"Negative\")\nM\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M)\n\n[1] \"matrix\" \"array\" \n\n# using cbind (or rbind)\nN &lt;- cbind(c(327,31),c(50,192))\ndimnames(N) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nN\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nstr(N)\n\n num [1:2, 1:2] 327 31 50 192\n - attr(*, \"dimnames\")=List of 2\n  ..$ : chr [1:2] \"Positive\" \"Negative\"\n  ..$ : chr [1:2] \"Disease\" \"NoDisease\"\n\n# using dim()\nP &lt;- c(327,50,31,192)\ndim(P) &lt;- c(2,2)\ndimnames(P) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nP\n\n         Disease NoDisease\nPositive     327        31\nNegative      50       192\n\nclass(P)\n\n[1] \"matrix\" \"array\"",
     "crumbs": [
       "Tables",
-      "contigency"
+      "contingency"
     ]
   },
   {
@@ -1541,7 +1541,7 @@
     "text": "3 Simple Table from a dataframe\n\ndf &lt;- data.frame(\n  c(327,50),\n  c(50,192)\n)\ncolnames(df) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(df) &lt;- c(\"Positive\",\"Negative\")\ndf\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(df)\n\n[1] \"data.frame\"\n\ntab &lt;- as.table(as.matrix(df))\ntab\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(tab)\n\n[1] \"table\"\n\naddmargins(tab)\n\n         Disease NoDisease Sum\nPositive     327        50 377\nNegative      50       192 242\nSum          377       242 619",
     "crumbs": [
       "Tables",
-      "contigency"
+      "contingency"
     ]
   },
   {
@@ -1552,7 +1552,7 @@
     "text": "4 xtabs require dataframe or tibble\n\n# tribble is easier to enter table values by rows\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n# xtabs require a dataframe or tibble, returns table\ntab2 &lt;- xtabs( Values ~ Predicted + Actual, data=df2)\naddmargins(tab2)\n\n          Actual\nPredicted  Disease NoDisease Sum\n  Negative      50       192 242\n  Positive     327        50 377\n  Sum          377       242 619\n\nclass(tab2)\n\n[1] \"xtabs\" \"table\"\n\n# a nicer table (maybe)\nftable(tab2)\n\n          Actual Disease NoDisease\nPredicted                         \nNegative              50       192\nPositive             327        50",
     "crumbs": [
       "Tables",
-      "contigency"
+      "contingency"
     ]
   },
   {
@@ -1939,5 +1939,12 @@
       "ggPlots",
       "patchwork"
     ]
+  },
+  {
+    "objectID": "dataframes/copyPaste.html",
+    "href": "dataframes/copyPaste.html",
+    "title": "copyPaste",
+    "section": "",
+    "text": "Example: copy and paste random sample of numbers from a web page or a PDF.\nData from example 1.1 of Devore’s Mathematical Statistics\n6.1 12.6 34.7 1.6 18.8 2.2 3.0 2.2 5.6 3.8 2.2 3.1 1.3 1.1 14.1 4.0 21.0 6.1 1.3 20.4 7.5 3.9 10.1 8.1 19.5 5.2 12.0 15.8 10.4 5.2 6.4 10.8 83.1 3.6 6.2 6.3 16.3 12.7 1.3 0.8 8.8 5.1 3.7 26.3 6.0 48.0 8.2 11.7 7.2 3.9 15.3 16.6 8.8 12.0 4.7 14.7 6.4 17.0 2.5 16.2\n\n\n# data copy and pasted from a pdf 'table' and\n# appears as a long string.\n\na &lt;- c(\"6.1 12.6 34.7 1.6 18.8 2.2 3.0 2.2 5.6 3.8 2.2 3.1 1.3 1.1 14.1 4.0 21.0 6.1 1.3 20.4 7.5 3.9 10.1 8.1 19.5 5.2 12.0 15.8 10.4 5.2 6.4 10.8 83.1 3.6 6.2 6.3 16.3 12.7 1.3 0.8 8.8 5.1 3.7 26.3 6.0 48.0 8.2 11.7 7.2 3.9 15.3 16.6 8.8 12.0 4.7 14.7 6.4 17.0 2.5 16.2\")\nstr(a)\n\n chr \"6.1 12.6 34.7 1.6 18.8 2.2 3.0 2.2 5.6 3.8 2.2 3.1 1.3 1.1 14.1 4.0 21.0 6.1 1.3 20.4 7.5 3.9 10.1 8.1 19.5 5.2\"| __truncated__\n\n\n\n# extract out all numbers of the string\n# b is a list of chr\nb &lt;- strsplit(a, split=\" \") # separated blanks \nstr(b)\n\nList of 1\n $ : chr [1:60] \"6.1\" \"12.6\" \"34.7\" \"1.6\" ...\n\n\n\n# convert list to a string of chr\n# by unlist\nc &lt;- unlist(b) \nstr(c)\n\n chr [1:60] \"6.1\" \"12.6\" \"34.7\" \"1.6\" \"18.8\" \"2.2\" \"3.0\" \"2.2\" \"5.6\" \"3.8\" ...\n\n\n\n# convert chr to vector numeric\nd &lt;- as.vector(c, 'numeric') \nstr(d)\n\n num [1:60] 6.1 12.6 34.7 1.6 18.8 2.2 3 2.2 5.6 3.8 ...\n\n# finally convert to a data.frame\ndf &lt;- data.frame(pcent = d)\nstr(df)\n\n'data.frame':   60 obs. of  1 variable:\n $ pcent: num  6.1 12.6 34.7 1.6 18.8 2.2 3 2.2 5.6 3.8 ...\n\n\n\nlibrary(tidyverse)\n\nggplot(df, aes(x=d))+\n  geom_histogram(bins=8, fill=\"lightblue\", color=\"black\")+\n  labs(\n    x=\"Fundraising expenses (percent of total expenditures)\",\n    y=\"Number of charities\",\n    title=\"A histogram for the charity fundraising data of Example 1.1\"\n  )"
   }
 ]
