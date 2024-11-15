@@ -581,7 +581,7 @@
     "href": "datatypes/factors.html#ordering-of-factors",
     "title": "factors",
     "section": "3 Ordering of factors",
-    "text": "3 Ordering of factors\n\n3.1 Using levels\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nbt &lt;- factor(bloodtypes)\nlevels(bt)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor() ’\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor\n\n\n# specify levels=...\nbt1 &lt;- factor(bloodtypes,\n             levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
+    "text": "3 Ordering of factors\n\n3.1 baseR factor (alphabetical)\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nbt &lt;- factor(bloodtypes)\nlevels(bt)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor() ’\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -591,8 +591,8 @@
     "objectID": "datatypes/factors.html#renaming-factors",
     "href": "datatypes/factors.html#renaming-factors",
     "title": "factors",
-    "section": "5 Renaming Factors",
-    "text": "5 Renaming Factors\n\ntb3&lt;-read_csv(\"\nDept, Views\nNational Cancer Center, 683\nNational Heart Center Singapore, 697\nNational Eye Center, 534\n\")\ntb3$Dept &lt;- as_factor(tb3$Dept)   # retains order\nlevels(tb3$Dept)\n\n[1] \"National Cancer Center\"          \"National Heart Center Singapore\"\n[3] \"National Eye Center\"            \n\n\n\ntb3$Dept &lt;- fct_recode(tb3$Dept,\n           NCC=\"National Cancer Center\",\n           NHCS = \"National Heart Center Singapore\",\n           NEC = \"National Eye Center\")\nlevels(tb3$Dept)\n\n[1] \"NCC\"  \"NHCS\" \"NEC\" \n\ntb3\n\n# A tibble: 3 × 2\n  Dept  Views\n  &lt;fct&gt; &lt;dbl&gt;\n1 NCC     683\n2 NHCS    697\n3 NEC     534",
+    "section": "6 Renaming Factors",
+    "text": "6 Renaming Factors\n\ntb3&lt;-read_csv(\"\nDept, Views\nNational Cancer Center, 683\nNational Heart Center Singapore, 697\nNational Eye Center, 534\n\")\ntb3$Dept &lt;- as_factor(tb3$Dept)   # retains order\nlevels(tb3$Dept)\n\n[1] \"National Cancer Center\"          \"National Heart Center Singapore\"\n[3] \"National Eye Center\"            \n\n\n\ntb3$Dept &lt;- fct_recode(tb3$Dept,\n           NCC=\"National Cancer Center\",\n           NHCS = \"National Heart Center Singapore\",\n           NEC = \"National Eye Center\")\nlevels(tb3$Dept)\n\n[1] \"NCC\"  \"NHCS\" \"NEC\" \n\ntb3\n\n# A tibble: 3 × 2\n  Dept  Views\n  &lt;fct&gt; &lt;dbl&gt;\n1 NCC     683\n2 NHCS    697\n3 NEC     534",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -1581,8 +1581,8 @@
     "objectID": "datatypes/factors.html#ordering-factors-for-ggplots",
     "href": "datatypes/factors.html#ordering-factors-for-ggplots",
     "title": "factors",
-    "section": "4 Ordering factors for ggplots",
-    "text": "4 Ordering factors for ggplots\n\n# problems when you want to plot the categorical variable \n# in a certain (original) order\ntb &lt;- read_csv(\"cancer, age, sex\n               Colorectal, 66, M\n               Lung, 29, M\n               Lung, 21, F\n               Nasal, 17, M\n               Colorectal, 55, F\n               Nasal, 31,F\n               Breast, 37, F\n               Liver, 55, M\n               Liver, 63, F\n               \")\ntb1 &lt;- tb\ntb1$cancer &lt;- factor(tb1$cancer)\nlevels(tb1$cancer)\n\n[1] \"Breast\"     \"Colorectal\" \"Liver\"      \"Lung\"       \"Nasal\"     \n\nggplot(tb1, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"blue\")\n\n\n\n\n\n\n\n\n\nor I can order the factor cancer in its original position\n\n\nlibrary(tidyverse)\ntb2 &lt;- tb\ntb2$cancer &lt;- as_factor(tb$cancer)\nlevels(tb2$cancer)\n\n[1] \"Colorectal\" \"Lung\"       \"Nasal\"      \"Breast\"     \"Liver\"     \n\nggplot(tb2, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"black\")",
+    "section": "5 Ordering factors for ggplots",
+    "text": "5 Ordering factors for ggplots\n\n# problems when you want to plot the categorical variable \n# in a certain (original) order\ntb &lt;- read_csv(\"cancer, age, sex\n               Colorectal, 66, M\n               Lung, 29, M\n               Lung, 21, F\n               Nasal, 17, M\n               Colorectal, 55, F\n               Nasal, 31,F\n               Breast, 37, F\n               Liver, 55, M\n               Liver, 63, F\n               \")\ntb1 &lt;- tb\ntb1$cancer &lt;- factor(tb1$cancer)\nlevels(tb1$cancer)\n\n[1] \"Breast\"     \"Colorectal\" \"Liver\"      \"Lung\"       \"Nasal\"     \n\nggplot(tb1, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"blue\")\n\n\n\n\n\n\n\n\n\nor I can order the factor cancer in its original position\n\n\nlibrary(tidyverse)\ntb2 &lt;- tb\ntb2$cancer &lt;- as_factor(tb$cancer)\nlevels(tb2$cancer)\n\n[1] \"Colorectal\" \"Lung\"       \"Nasal\"      \"Breast\"     \"Liver\"     \n\nggplot(tb2, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"black\")",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -2011,6 +2011,73 @@
     "crumbs": [
       "Tables",
       "contingency"
+    ]
+  },
+  {
+    "objectID": "tables/aggregation.html",
+    "href": "tables/aggregation.html",
+    "title": "xtabs",
+    "section": "",
+    "text": "library(tidyverse)\n\n\n\n\ndf1 &lt;- data.frame(Reference = c(\"KRXH\", \"KRPT\", \"FHRA\", \"CZKK\", \"CQTN\", \"PZXW\", \"SZRZ\", \"RMZE\", \"STNX\", \"TMDW\"), Status = c(\"Accepted\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Rejected\", \"Accepted\", \"Accepted\"), Gender = c(\"Female\", \"Male\", \"Male\", \"Female\", \"Female\", \"Female\", \"Male\", \"Female\", \"Female\", \"Female\"), Test = c(\"Test1\", \"Test1\", \"Test2\", \"Test3\", \"Test1\", \"Test4\", \"Test4\", \"Test2\", \"Test3\", \"Test1\"), NewOrFollowUp = c(\"New\", \"New\", \"New\", \"New\", \"New\", \"Follow-up\", \"New\", \"New\", \"New\", \"New\"))\ndf1\n\n   Reference   Status Gender  Test NewOrFollowUp\n1       KRXH Accepted Female Test1           New\n2       KRPT Accepted   Male Test1           New\n3       FHRA Rejected   Male Test2           New\n4       CZKK Accepted Female Test3           New\n5       CQTN Rejected Female Test1           New\n6       PZXW Accepted Female Test4     Follow-up\n7       SZRZ Rejected   Male Test4           New\n8       RMZE Rejected Female Test2           New\n9       STNX Accepted Female Test3           New\n10      TMDW Accepted Female Test1           New"
+  },
+  {
+    "objectID": "tables/aggregation.html#libraries",
+    "href": "tables/aggregation.html#libraries",
+    "title": "xtabs",
+    "section": "",
+    "text": "library(tidyverse)\n\n\n\n\ndf1 &lt;- data.frame(Reference = c(\"KRXH\", \"KRPT\", \"FHRA\", \"CZKK\", \"CQTN\", \"PZXW\", \"SZRZ\", \"RMZE\", \"STNX\", \"TMDW\"), Status = c(\"Accepted\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Rejected\", \"Accepted\", \"Accepted\"), Gender = c(\"Female\", \"Male\", \"Male\", \"Female\", \"Female\", \"Female\", \"Male\", \"Female\", \"Female\", \"Female\"), Test = c(\"Test1\", \"Test1\", \"Test2\", \"Test3\", \"Test1\", \"Test4\", \"Test4\", \"Test2\", \"Test3\", \"Test1\"), NewOrFollowUp = c(\"New\", \"New\", \"New\", \"New\", \"New\", \"Follow-up\", \"New\", \"New\", \"New\", \"New\"))\ndf1\n\n   Reference   Status Gender  Test NewOrFollowUp\n1       KRXH Accepted Female Test1           New\n2       KRPT Accepted   Male Test1           New\n3       FHRA Rejected   Male Test2           New\n4       CZKK Accepted Female Test3           New\n5       CQTN Rejected Female Test1           New\n6       PZXW Accepted Female Test4     Follow-up\n7       SZRZ Rejected   Male Test4           New\n8       RMZE Rejected Female Test2           New\n9       STNX Accepted Female Test3           New\n10      TMDW Accepted Female Test1           New"
+  },
+  {
+    "objectID": "tables/aggregation.html#using-matrix",
+    "href": "tables/aggregation.html#using-matrix",
+    "title": "2x2 Contingency Table",
+    "section": "2 Using matrix",
+    "text": "2 Using matrix\n\n# Matrix: using nrows\nM1 &lt;- matrix(\n c(327,50,31,192),nrow=2,byrow=TRUE)\ncolnames(M1) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(M1) &lt;- c(\"Positive\",\"Negative\")\nM1\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M1)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "tables/aggregation.html#using-cbind-or-rbind",
+    "href": "tables/aggregation.html#using-cbind-or-rbind",
+    "title": "2x2 Contingency Table",
+    "section": "3 Using cbind (or rbind)",
+    "text": "3 Using cbind (or rbind)\n\nM2 &lt;- cbind(c(327,31),c(50,192))\ndimnames(M2) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nM2\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M2)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "tables/aggregation.html#using-dim",
+    "href": "tables/aggregation.html#using-dim",
+    "title": "2x2 Contingency Table",
+    "section": "4 Using dim",
+    "text": "4 Using dim\n\nM3 &lt;- c(327,50,31,192)\ndim(M3) &lt;- c(2,2)\ndimnames(M3) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nM3\n\n         Disease NoDisease\nPositive     327        31\nNegative      50       192\n\nclass(M3)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "tables/aggregation.html#simple-table-from-a-dataframe",
+    "href": "tables/aggregation.html#simple-table-from-a-dataframe",
+    "title": "2x2 Contingency Table",
+    "section": "5 Simple Table from a dataframe",
+    "text": "5 Simple Table from a dataframe\n\ndf &lt;- data.frame(\n  c(327,50),\n  c(50,192)\n)\ncolnames(df) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(df) &lt;- c(\"Positive\",\"Negative\")\ndf\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(df)\n\n[1] \"data.frame\"\n\ntab &lt;- as.table(as.matrix(df))\ntab\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(tab)\n\n[1] \"table\"\n\naddmargins(tab)\n\n         Disease NoDisease Sum\nPositive     327        50 377\nNegative      50       192 242\nSum          377       242 619"
+  },
+  {
+    "objectID": "tables/aggregation.html#xtabs-require-dataframe-or-tibble",
+    "href": "tables/aggregation.html#xtabs-require-dataframe-or-tibble",
+    "title": "2x2 Contingency Table",
+    "section": "6 xtabs require dataframe or tibble",
+    "text": "6 xtabs require dataframe or tibble\n\n# tribble is easier to enter table values by rows\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n# xtabs require a dataframe or tibble, returns table\ntab2 &lt;- xtabs( Values ~ Predicted + Actual, data=df2)\naddmargins(tab2)\n\n          Actual\nPredicted  Disease NoDisease Sum\n  Negative      50       192 242\n  Positive     327        50 377\n  Sum          377       242 619\n\nclass(tab2)\n\n[1] \"xtabs\" \"table\"\n\n# a nicer table (maybe)\nftable(tab2)\n\n          Actual Disease NoDisease\nPredicted                         \nNegative              50       192\nPositive             327        50"
+  },
+  {
+    "objectID": "tables/aggregation.html#xtabs---uses-formula-style",
+    "href": "tables/aggregation.html#xtabs---uses-formula-style",
+    "title": "xtabs",
+    "section": "2 xtabs - uses formula style",
+    "text": "2 xtabs - uses formula style\n\n2.1 count the levels in the variable Status\n\n# find the count of levels in the variable, “Status\nxtabs(~ Status, data=df1)\n\nStatus\nAccepted Rejected \n       6        4 \n\n\n\n\n2.2 create a table of Reference vs `Status`\n\nxtabs(~ Reference + Status, data=df1)\n\n         Status\nReference Accepted Rejected\n     CQTN        0        1\n     CZKK        1        0\n     FHRA        0        1\n     KRPT        1        0\n     KRXH        1        0\n     PZXW        1        0\n     RMZE        0        1\n     STNX        1        0\n     SZRZ        0        1\n     TMDW        1        0\n\n\n\n\n2.3 create a 3-dim table of Status, Gender and Test\n\nxt &lt;- xtabs(~ Status+Gender+Test, data=df1)\nxt\n\n, , Test = Test1\n\n          Gender\nStatus     Female Male\n  Accepted      2    1\n  Rejected      1    0\n\n, , Test = Test2\n\n          Gender\nStatus     Female Male\n  Accepted      0    0\n  Rejected      1    1\n\n, , Test = Test3\n\n          Gender\nStatus     Female Male\n  Accepted      2    0\n  Rejected      0    0\n\n, , Test = Test4\n\n          Gender\nStatus     Female Male\n  Accepted      1    0\n  Rejected      0    1\n\n\n\n\n2.4 using ftable (flattening)\n\nftable(xt)\n\n                Test Test1 Test2 Test3 Test4\nStatus   Gender                             \nAccepted Female          2     0     2     1\n         Male            1     0     0     0\nRejected Female          1     1     0     0\n         Male            0     1     0     1\n\n\n\n\n2.5 two-variables table\n\nxtabs(~Status+Gender, data=df1)\n\n          Gender\nStatus     Female Male\n  Accepted      5    1\n  Rejected      2    2\n\n\n\n\n2.6 plot cross-tabulations\n\nplot(xtabs(~Status+Gender, data=df1))"
+  },
+  {
+    "objectID": "datatypes/factors.html#retain-factor-ordering",
+    "href": "datatypes/factors.html#retain-factor-ordering",
+    "title": "factors",
+    "section": "4 Retain factor ordering",
+    "text": "4 Retain factor ordering\n\n# method 1\n# specified levels\nbt1 &lt;- factor(bloodtypes,\n          levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\n# method 2\n# using as_factor (instead of as.factor from baseR) \n# will retain the original factor order.\n# better than using relevel or fct_reorder\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
+    "crumbs": [
+      "Datatypes",
+      "factors"
     ]
   }
 ]
