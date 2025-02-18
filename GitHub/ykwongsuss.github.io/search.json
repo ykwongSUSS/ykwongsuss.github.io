@@ -1,0 +1,127 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Survival Analysis",
+    "section": "",
+    "text": "This is a Survival Analysis with R website. The reference text is Collett2023. 1",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#contents",
+    "href": "index.html#contents",
+    "title": "Survival Analysis",
+    "section": "1 Contents",
+    "text": "1 Contents\n\nSurvival R\nNon-parametric survival analysis\nCox regression model\nModel checking Cox regression\nParametric regression models\n\nA companion website is ykwongWebR.\n\nTested",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Survival Analysis",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nCollett, David 2023.Modelling Survival Data in Medical Research. Fourth Edition. CRC Press.↩︎",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "wflow.html",
+    "href": "wflow.html",
+    "title": "Workflow",
+    "section": "",
+    "text": "RStudio: Edit WebSurvival in Rstudio. Rendering creates and updates the _site folder with all site(html) files.",
+    "crumbs": [
+      "Preface",
+      "wflow"
+    ]
+  },
+  {
+    "objectID": "wflow.html#rstudio",
+    "href": "wflow.html#rstudio",
+    "title": "Workflow",
+    "section": "",
+    "text": "RStudio: Edit WebSurvival in Rstudio. Rendering creates and updates the _site folder with all site(html) files.",
+    "crumbs": [
+      "Preface",
+      "wflow"
+    ]
+  },
+  {
+    "objectID": "wflow.html#rsync",
+    "href": "wflow.html#rsync",
+    "title": "Workflow",
+    "section": "2 RSync",
+    "text": "2 RSync\n\nrsync _site to local GitHub Desktop site via sh rsyncWebSurvival.sh",
+    "crumbs": [
+      "Preface",
+      "wflow"
+    ]
+  },
+  {
+    "objectID": "wflow.html#desktop-github",
+    "href": "wflow.html#desktop-github",
+    "title": "Workflow",
+    "section": "3 Desktop Github",
+    "text": "3 Desktop Github\n\nUpdated files appear in Desktop Github\n** Add Summary Comment ** and Commit to main\nUpload to Github.com repository",
+    "crumbs": [
+      "Preface",
+      "wflow"
+    ]
+  },
+  {
+    "objectID": "wflow.html#continuous-deployment",
+    "href": "wflow.html#continuous-deployment",
+    "title": "Workflow",
+    "section": "4 Continuous deployment",
+    "text": "4 Continuous deployment\n\nWebSurvival is currently deployed to public github ykwongsuss.github.io",
+    "crumbs": [
+      "Preface",
+      "wflow"
+    ]
+  },
+  {
+    "objectID": "yml.html",
+    "href": "yml.html",
+    "title": "yaml",
+    "section": "",
+    "text": "---\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false\n---",
+    "crumbs": [
+      "Preface",
+      "yml"
+    ]
+  },
+  {
+    "objectID": "yml.html#yamlfor-each-qmd-file.",
+    "href": "yml.html#yamlfor-each-qmd-file.",
+    "title": "yaml",
+    "section": "",
+    "text": "---\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false\n---",
+    "crumbs": [
+      "Preface",
+      "yml"
+    ]
+  },
+  {
+    "objectID": "yml.html#navigation-sidebar-in-_quarto.yml",
+    "href": "yml.html#navigation-sidebar-in-_quarto.yml",
+    "title": "yaml",
+    "section": "2 Navigation sidebar in _quarto.yml",
+    "text": "2 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebSurvival\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: SurvivalR\n       href: survivalR.qmd\n         contents:\n          - text: dataframe\n            href: survivalR/dataframe.qmd\n          - text: group\n            href: survivalR/group.qmd\n          - text: recode\n            href: survivalR/recode.qmd\n          - text: cut\n            href: survivalR/cut.qmd\n...\n---",
+    "crumbs": [
+      "Preface",
+      "yml"
+    ]
+  }
+]
